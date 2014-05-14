@@ -1,30 +1,18 @@
-kona.js
-=======
+KONA CLOUD
+===========
 
-KONA is a powerful platform as a service built on top of solid and agile technologies.
-
-KONA is scalable as it sits on top of elastic hosting providers.
-
-KONA is not a new development language or framework. KONA, is the future.
-
-
-
-Acces
+KONA CLOUD is a powerful platform as a service built on top of solid and agile technologies. Is scalable as it sits on top of elastic cloud providers.
 
 http://konacloud.io
-
 http://developer.konacloud.io
-
 
 ## Videos
 
 30 minutes duration http://vimeo.com/82645251
 
-
 Kona-Facebook Demo Video
 
 http://www.youtube.com/watch?v=_tJVz3I9uts&feature=youtu.be
-
 
 Kona-Twitter Demo Video
 
