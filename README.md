@@ -9,7 +9,12 @@ KONA is not a new development language or framework. KONA, is the future.
 
 
 
-Demo http://konacloud.net/console
+Acces
+
+http://konacloud.io
+
+http://developer.konacloud.io
+
 
 ## Videos
 
