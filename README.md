@@ -27,15 +27,18 @@ Kona GeoCode Example
 http://www.youtube.com/watch?v=wAtOfGyngiY&feature=youtu.be
 
 
-# Kona.js User Guide
+# kona.js User Guide
 
-Kona has a BAAS included and allows you to edit or create apis apis custom, for this the developer has access to all the java api + u framework "kona.js" that allows communication between js and java and gives us methods for our entities, send emails, connect to a database, etc. ..
-Kona.js has components both js and java and includes his connection
+KONA is a Backend-as-a-Service platform which allows you to create data models, develop custom APIs and much more. KONA APIs are coded in standard JavaScript 1.5. KONA runs on top of the super fast Nashorn JavaScript engine from Oracle on top of the Java 8 VM.
 
-The apis kona.js aims to be simple, clear, these know the context in which it is running.
-Basically there are 2 types of apis, resources (rest or web resource) and simple methods, simple methods can be called from other methods or other resources.
+We have created a beautiful kona.js sdk in order to provide the developers easy to use and convenient functions that make your life easier while coding your business logic within the APIs.
 
-framework kona.js
+This SDK has functions for sending emails, sending sms, calling external web services, connnecting to SQL-based databases and more.
+
+We strive to create very simple and efficient helper functions so you don't have to reinvent the wheel. We are adding more functions every day to the kona.js package.
+
+kona.js samples
+===============
 
 ## BasicServices
 
@@ -641,21 +644,12 @@ change the captions of the table
 Video
 
 
-
 #Buckets
 
-A bucket is a place to host files and then consult
-Each bucket created kona has a unique url, this url is the post I make with the.
-
-Ejemplo de un rest client para enviar archivos
+A bucket is a place to host static content and serve them fast.
+Each bucket created in KONA has a unique url you can POST and GET files from. Any file you POST will return a JSON object with the success code and GET URL you an use to retrieve it.
 
 ![ScreenShot](http://i.imgur.com/OVFxuIr.png)
-
-
-Kona
-
-![ScreenShot](http://i.imgur.com/qAd96vd.jpg)
-
 
 # Schedule
 
