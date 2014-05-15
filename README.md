@@ -538,10 +538,63 @@ Each bucket created in KONA has a unique url you can POST and GET files from. An
 
 ![ScreenShot](http://i.imgur.com/OVFxuIr.png)
 
-# Schedule
+#Schedule
 
 
 http://en.wikipedia.org/wiki/Cron#Examples
 
 
 kona.js
+
+
+
+
+#OpenKonaJS
+
+
+OpenKonaJS is han open framework used by KonaJS at runtime
+
+
+We allow developers to add code and just send us the pull request
+
+## How add code to OpenKonaJS
+
+Its simple, 
+
+Firts create ha interface like MySampleService in the package org.kona.js (only on this package), them create ha Java class that implements the interface, like MySampleServiceImpl, please use the names that we recomend (Service and ServiceImpl).
+
+Then, in the class OpenKonaJSFactory add ha public property (yes, do this in Java :) ), like
+
+MySampleService sample = new MySampleServiceImpl();
+
+or the other posibility is to add in IOpenKonaJSFactory one method and implement in OpenKonaJSFactory, but we recomen the other way, the namespace its very importante
+
+When the finaly user use the code, he will just type
+
+```
+var resp = kona.sample.myFunction("hi");
+```
+
+add all the methods in the interface and implement them in the ServiceImpl.
+
+Finaly add ha test case for your method in the apropiate package.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
