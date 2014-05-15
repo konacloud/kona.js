@@ -561,6 +561,11 @@ We allow developers to add code and just send us the pull request
 
 Its simple, 
 
+Tools:
+
+Java
+Eclipse
+
 Firts create ha interface like MySampleService in the package org.kona.js (only on this package), them create ha Java class that implements the interface, like MySampleServiceImpl, please use the names that we recomend (Service and ServiceImpl).
 
 Then, in the class OpenKonaJSFactory add ha public property (yes, do this in Java :) ), like
