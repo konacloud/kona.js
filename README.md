@@ -241,10 +241,10 @@ m.queryById("id1");
 ### Query Single
 
 ```
-var m = kona.model.open("person");
-var one = m.query('person',"{name:'me'}",true); //obtenemos 1 persona con nombre igual a 'me'
+obj = kona.obj();
+obj.put("field1","some");
+var m = kona.model.open("person").query(obj).get(0);
 
-var name = one.get('name'); //playing with the obj
 ```
 ## Map Service
 
