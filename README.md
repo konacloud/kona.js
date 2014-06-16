@@ -1,10 +1,16 @@
-KONA CLOUD
-===========
+KonaCloud.io
+============
 
-KONA CLOUD is a powerful platform as a service built on top of solid and agile technologies. Is scalable as it sits on top of elastic cloud providers.
+Welcome to KonaCloud.io
 
-http://konacloud.io
-http://developer.konacloud.io
+KonaCloud.io is for developers by developers. A platform to run all your back-ends, APIs and bussiness logic. Runs JavaScript on the server-side so you don't have to learn a new language.
+
+KONA is a Backend-as-a-Service platform which allows you to create data models, code custom APIs, create and use object storage buckets and reporting for your data. 
+
+KONA custom APIs are coded in the latest JavaScript. These are then executed by the all-new, super-fast  and powerful Nashorn JavaScript engine from Oracle's JVM 8.
+
+Website: http://konacloud.io
+Developer Portal: http://developer.konacloud.io
 
 ## Videos
 
@@ -27,17 +33,29 @@ Kona GeoCode Example
 http://www.youtube.com/watch?v=wAtOfGyngiY&feature=youtu.be
 
 
-# kona.js User Guide
+# KonaCloud.IO SDK Reference
 
-KONA is a Backend-as-a-Service platform which allows you to create data models, develop custom APIs and much more. KONA APIs are coded in standard JavaScript 1.5. KONA runs on top of the super fast Nashorn JavaScript engine from Oracle on top of the Java 8 VM.
+On top of the execution runtine, we created a powerful KonaCloud.IO SDK that helps developers code faster and with less errors with ready-to-use libraries that provide a lot of functionality right outside the box, such as push notifcations for iOS and Android, email sending, sms sending, calling external web services and connecting to SQL-based databases with ease.
 
-We have created a beautiful kona.js sdk in order to provide the developers easy to use and convenient functions that make your life easier while coding your business logic within the APIs.
+We strive to create very simple and efficient helper functions so you don't have to reinvent the wheel. We are adding more functions every day to the SDK.
 
-This SDK has functions for sending emails, sending sms, calling external web services, connnecting to SQL-based databases and more.
+# JavaScript
 
-We strive to create very simple and efficient helper functions so you don't have to reinvent the wheel. We are adding more functions every day to the kona.js package.
+We love JavaScript and all of KonaCloud.IO is based on JavaScript libraries and functions. 
 
-kona.js samples
+Here are useful links to JavaScript reference and user guides that will help you be more efficient and productive.
+
+A re-introduction to JavaScript (JS Tutorial)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
+
+Mozilla's JavaScript Guide
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
+
+Mozilla's JavaScript Reference
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+
+
+Code Samples
 ===============
 
 ## BasicServices
@@ -74,7 +92,7 @@ You can configure a service itself or use the default mails having kona.
 #### Fast Way (One line email)
 
 ```
-kona.email.send('mimail@miserver.com','Subject','Content');
+kona.email.send('email@server.com','Subject','Content');
 
 ```
 
