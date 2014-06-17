@@ -604,7 +604,48 @@ Finaly add ha test case for your method in the apropiate package.
 
 
 
+# UI Views
 
+## Model View
+
+Attributes validations, you can use a regexp to valida han attribute, for example
+
+
+Username regular expression
+^[a-z0-9_-]{3,15}$
+
+Password regular expression
+((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})
+
+Hex color code regular expression
+^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$
+
+E-mail address regular expression
+^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@
+[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$
+
+Image file extension regular expression
+([^\s]+(\.(?i)(jpg|png|gif|bmp))$)
+
+IP Address regular expression
+^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.
+([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$
+
+Time in 12 Hours format regular expression
+(1[012]|[1-9]):[0-5][0-9](\\s)?(?i)(am|pm)
+
+Time in 24 Hours format regular expression
+([01]?[0-9]|2[0-3]):[0-5][0-9]
+
+Date regular expression
+(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)
+
+HTML tag regular expression
+<("[^"]*"|'[^']*'|[^'">])*>
+
+HTML Links regular expression
+(?i)<a([^>]+)>(.+?)</a>
+\s*(?i)href\s*=\s*(\"([^"]*\")|'[^']*'|([^'">\s]+));
 
 
 
