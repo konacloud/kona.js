@@ -122,6 +122,16 @@ log.war("This is han warining log");
 
 If you use the "Debug" Button you can see the logs for the test method, and web yous clientes acces to the resources then the logs area stored and you can see them in the Log View
 
+and the result is something like this
+
+```
+//Use log('text') to log 
+This is a common log
+[ERROR] Wed Jun 18 2014 01:22:21 GMT-0300 (UYT)Hi this is han error
+[INFO] Wed Jun 18 2014 01:22:21 GMT-0300 (UYT)This is han info log
+[WAR] Wed Jun 18 2014 01:22:21 GMT-0300 (UYT)This is han warining log
+```
+
 ### Object (Simple Java Object KonaDO)
 
 You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
