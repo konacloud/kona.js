@@ -60,7 +60,26 @@ Code Samples
 
 ## BasicServices
 
-### Object
+### Object JS Mode
+
+You can create and use JS Object and them pass they to the kona methods
+
+One Wey
+
+```
+
+var obj = {
+	"name": "Ear",
+	"age":19
+};
+
+var str = JSON.stringify(obj); //this is a String (JS and Java(
+
+var konaObj = kona.parse(str);
+
+```
+
+### Object (Simple Java Object KonaDO)
 
 You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
 usually an object of type KonaDO compliant json format with other properties.
@@ -78,11 +97,6 @@ var obj = new ArrayList<KonaDO>(); //o
 var obj = kona.list();
 ```
 
-
-### Java API
-
-Simply ImportPackage with the package name eg java.util or java.text and from there use
-the api directly as estuvise compile a java environment.
 
 ### Mails
 
