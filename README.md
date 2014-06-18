@@ -73,12 +73,39 @@ var obj = {
 	"age":19
 };
 
-var str = JSON.stringify(obj); //this is a String (JS and Java(
-
-var konaObj = kona.parse(str);
+var str = JSON.stringify(obj); //this is a String.
 
 ```
 
+
+### HOW to Use Object in Kona
+
+
+You can use JS Object or Java Object, for example
+
+```
+
+var test = function() {
+    
+    var obj = kona.obj();
+    obj.put("name","obj1");
+    
+    model.insert(obj);
+    
+    var obj2 = new Object();
+    obj2.name = "obj2";
+    
+    model.insert(obj2);
+    
+    var obj3 = {
+        name : "obj3"
+    };
+    
+    model.insert(obj3);
+    
+};
+
+```
 ### Object (Simple Java Object KonaDO)
 
 You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
