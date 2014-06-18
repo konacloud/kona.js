@@ -106,6 +106,22 @@ var test = function() {
 };
 
 ```
+
+##Basic Uses
+
+####How to Log
+
+Yo can log all kond of stuff, for example
+```
+log("This is a common log");
+log.err("Hi this is han error");
+log.info("This is han info log");
+log.war("This is han warining log");
+    
+```
+
+If you use the "Debug" Button you can see the logs for the test method, and web yous clientes acces to the resources then the logs area stored and you can see them in the Log View
+
 ### Object (Simple Java Object KonaDO)
 
 You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
