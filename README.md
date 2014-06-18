@@ -132,6 +132,31 @@ This is a common log
 [WAR] Wed Jun 18 2014 01:22:21 GMT-0300 (UYT)This is han warining log
 ```
 
+### TEST (Traducir)
+
+Cada api debe implementar el metodo test para poder ser utiliada en la test suite.
+El metodo test es un test unitario del recurso o metodo que se esta programando.
+
+Se considera que un test es exitoso si no contiene error al terminar su ejecucion, alguna funciones de utilidad son:
+
+```
+	assert(p, q)
+```
+
+```
+	notAssert(p, q)
+```
+
+Ademas se pueden hacer cosas como
+
+```
+	if (somethingStrange()){
+		kona.error("This is bad");
+	}
+```
+
+Consideramos una buena practica que todos los metodos tengan su test, auque deben tener cuidado de no insertar datos en cada test (queda a criterio del desarrollador)
+
 ### Object (Simple Java Object KonaDO)
 
 You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
