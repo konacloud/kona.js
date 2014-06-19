@@ -181,6 +181,32 @@ var obj = kona.list();
 Sending mails is performed as follows
 You can configure a service itself or use the default mails having kona.
 
+
+
+### Request Structure
+
+Cada request a un resource viene con la siguiente estructura, por ejemplo
+
+
+req.header
+req.params
+req.body
+
+##### Ejemplo de obtencion de un headers
+
+```
+var get = function(req) {
+    return req.headers.get("asd");
+};
+```
+
+##### Obtener parametro URL
+
+```
+var get = function(req) {
+    return req.params.get("asd");
+};
+```
 #### Fast Way (One line email)
 
 ```
