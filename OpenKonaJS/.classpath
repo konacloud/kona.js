@@ -4,20 +4,12 @@
 	<classpathentry kind="lib" path="lib/unirest-java-1.3.12-SNAPSHOT-jar-with-dependencies.jar"/>
 	<classpathentry kind="lib" path="lib/hamcrest-core-1.3.jar"/>
 	<classpathentry kind="lib" path="lib/junit-4.11.jar"/>
-	<classpathentry kind="lib" path="lib/apns.jar"/>
 	<classpathentry kind="lib" path="lib/annotations-2.0.3.jar"/>
 	<classpathentry kind="lib" path="lib/commons-codec-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/commons-httpclient-3.1.jar"/>
 	<classpathentry kind="lib" path="lib/commons-lang3-3.1.jar"/>
 	<classpathentry kind="lib" path="lib/commons-logging-1.0.4.jar"/>
-	<classpathentry kind="lib" path="lib/guava-14.0.1.jar"/>
-	<classpathentry kind="lib" path="lib/jackson-annotations-2.1.4.jar"/>
-	<classpathentry kind="lib" path="lib/jackson-core-2.1.4.jar"/>
-	<classpathentry kind="lib" path="lib/jackson-databind-2.1.4.jar"/>
 	<classpathentry kind="lib" path="lib/joda-time-2.2.jar"/>
-	<classpathentry kind="lib" path="lib/lidalia-lang-1.0.0-jdk6.jar"/>
-	<classpathentry kind="lib" path="lib/lidalia-slf4j-ext-1.0.0-jdk6.jar"/>
-	<classpathentry kind="lib" path="lib/mockito-all-1.9.5.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.2.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-test-1.0.0-jdk6.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
