@@ -60,7 +60,104 @@ Code Samples
 
 ## BasicServices
 
-### Object
+### Object JS Mode
+
+You can create and use JS Object and them pass they to the kona methods
+
+One Wey
+
+```
+
+var obj = {
+	"name": "Ear",
+	"age":19
+};
+
+var str = JSON.stringify(obj); //this is a String.
+
+```
+
+
+### HOW to Use Object in Kona
+
+
+You can use JS Object or Java Object, for example
+
+```
+
+var test = function() {
+    
+    var obj = kona.obj();
+    obj.put("name","obj1");
+    
+    model.insert(obj);
+    
+    var obj2 = new Object();
+    obj2.name = "obj2";
+    
+    model.insert(obj2);
+    
+    var obj3 = {
+        name : "obj3"
+    };
+    
+    model.insert(obj3);
+    
+};
+
+```
+
+##Basic Uses
+
+####How to Log
+
+Yo can log all kond of stuff, for example
+```
+log("This is a common log");
+log.err("Hi this is han error");
+log.info("This is han info log");
+log.war("This is han warining log");
+    
+```
+
+If you use the "Debug" Button you can see the logs for the test method, and web yous clientes acces to the resources then the logs area stored and you can see them in the Log View
+
+and the result is something like this
+
+```
+//Use log('text') to log 
+This is a common log
+[ERROR] Wed Jun 18 2014 01:22:21 GMT-0300 (UYT)Hi this is han error
+[INFO] Wed Jun 18 2014 01:22:21 GMT-0300 (UYT)This is han info log
+[WAR] Wed Jun 18 2014 01:22:21 GMT-0300 (UYT)This is han warining log
+```
+
+### TEST (Traducir)
+
+Cada api debe implementar el metodo test para poder ser utiliada en la test suite.
+El metodo test es un test unitario del recurso o metodo que se esta programando.
+
+Se considera que un test es exitoso si no contiene error al terminar su ejecucion, alguna funciones de utilidad son:
+
+```
+	assert(p, q)
+```
+
+```
+	notAssert(p, q)
+```
+
+Ademas se pueden hacer cosas como
+
+```
+	if (somethingStrange()){
+		kona.error("This is bad");
+	}
+```
+
+Consideramos una buena practica que todos los metodos tengan su test, auque deben tener cuidado de no insertar datos en cada test (queda a criterio del desarrollador)
+
+### Object (Simple Java Object KonaDO)
 
 You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
 usually an object of type KonaDO compliant json format with other properties.
@@ -79,16 +176,37 @@ var obj = kona.list();
 ```
 
 
-### Java API
-
-Simply ImportPackage with the package name eg java.util or java.text and from there use
-the api directly as estuvise compile a java environment.
-
 ### Mails
 
 Sending mails is performed as follows
 You can configure a service itself or use the default mails having kona.
 
+
+
+### Request Structure
+
+Cada request a un resource viene con la siguiente estructura, por ejemplo
+
+
+req.header
+req.params
+req.body
+
+##### Ejemplo de obtencion de un headers
+
+```
+var get = function(req) {
+    return req.headers.get("asd");
+};
+```
+
+##### Obtener parametro URL
+
+```
+var get = function(req) {
+    return req.params.get("asd");
+};
+```
 #### Fast Way (One line email)
 
 ```
@@ -604,7 +722,48 @@ Finaly add ha test case for your method in the apropiate package.
 
 
 
+# UI Views
 
+## Model View
+
+Attributes validations, you can use a regexp to valida han attribute, for example
+
+
+Username regular expression
+^[a-z0-9_-]{3,15}$
+
+Password regular expression
+((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})
+
+Hex color code regular expression
+^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$
+
+E-mail address regular expression
+^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@
+[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$
+
+Image file extension regular expression
+([^\s]+(\.(?i)(jpg|png|gif|bmp))$)
+
+IP Address regular expression
+^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.
+([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$
+
+Time in 12 Hours format regular expression
+(1[012]|[1-9]):[0-5][0-9](\\s)?(?i)(am|pm)
+
+Time in 24 Hours format regular expression
+([01]?[0-9]|2[0-3]):[0-5][0-9]
+
+Date regular expression
+(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)
+
+HTML tag regular expression
+<("[^"]*"|'[^']*'|[^'">])*>
+
+HTML Links regular expression
+(?i)<a([^>]+)>(.+?)</a>
+\s*(?i)href\s*=\s*(\"([^"]*\")|'[^']*'|([^'">\s]+));
 
 
 
