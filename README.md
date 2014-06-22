@@ -207,6 +207,40 @@ var get = function(req) {
     return req.params.get("asd");
 };
 ```
+
+### Libraries
+
+Para definir librerias y utlizar en cualquier resource/job o otra libreria
+
+Guardar el codigo como Library
+
+Por ejemplo:
+
+```
+var util = function(){
+    return (new Date()).getTime();
+};
+
+var test = function(){
+    return util();
+}
+```
+
+y lo Guardamos por ejemplo con el nombre timeUtil
+
+Luego desde cualquier funcion simplemente lo incluimos al comienzo del script (es importante que sea al principio)
+
+```
+include("timeUtil");
+
+var test = function(){
+    return timeUtil.util();
+};
+```
+
+
+### Helpers
+
 #### Fast Way (One line email)
 
 ```
