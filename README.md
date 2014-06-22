@@ -301,11 +301,11 @@ REST (json)
 
 ```
 function f(){
-var obj = kona.obj();
-var api = kona.api.get();
-var r = api.call("http://api.openweathermap.org/data/2.1/weather/city/3441575?units=metric");
-obj.put('temperatura',r.get("main").get("temp"));
-return obj;
+	var obj = kona.obj();
+	var api = kona.api.get();
+	var r = api.call("http://api.openweathermap.org/data/2.1/weather/city/3441575?units=metric");
+	obj.put('temperatura',r.get("main").get("temp"));
+	return obj;
 }
 ```
 
@@ -316,7 +316,6 @@ temperatura: 19.25
 }
 ```
 
-Propiedades
 
 
 ### Metodo Get
@@ -416,6 +415,41 @@ obj.put("field1","some");
 var m = kona.model.open("person").query(obj).get(0);
 
 ```
+
+## Push Notifications
+
+### Andorid Push Notification
+
+#### Server Side
+
+Primero agregar el Android APiKey en el Settings de la aplicacion
+
+![ScreenShot](http://i.imgur.com/RQUB62J.png)
+
+
+Luego desde el codigo hacemos lo siguiente
+
+```
+var test = function(){
+    
+    var obj = kona.obj("message","Hi from kona");
+    obj.put("time",(new Date()).getTime());
+    kona.notifications.push("fc85574de6588e5926d286743e1b99f5aa8fd5fa1f600612a4b01376695fcad6",obj.toString());
+    return kona.obj(true);
+};
+
+```
+
+#### Client Side
+
+Ejemplo del codigo para el cliente se puede encontrar en 
+
+https://github.com/konacloud/samples/tree/master/android%20push%20notification%20example
+
+
+### IOS Push Notifications
+
+
 ## Map Service
 
 The idea is to have an api to work with maps and locations
