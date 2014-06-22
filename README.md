@@ -695,16 +695,16 @@ Se puede partir de una ayuda visual para armar el cron, indicando minutos, horas
 
 Si se ingresa un * en horas significa todas las horas por ejemplo, y si se ingresa 1 significa solo la hora 1.
 
-![ScreenShot](http://i.imgur.com/otZxl5R)
+![ScreenShot](http://i.imgur.com/otZxl5R.png)
 
 
 Luego se puede editar manualmente el cron tab, verificar que sea valido el ingresado
 
-![ScreenShot](http://i.imgur.com/yaq0MC7)
+![ScreenShot](http://i.imgur.com/yaq0MC7.png)
 
 
 De cada Cron Job vemos la siguiente informacion y tenemos las siguientes opciones
-![ScreenShot](http://i.imgur.com/D4ArwEu)
+![ScreenShot](http://i.imgur.com/D4ArwEu.png)
 
 Podemos ejecutarlo y ver en la KConsole sus logs de ejecucion y el resultado si es que existe.
 
