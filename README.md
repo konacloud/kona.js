@@ -5,7 +5,7 @@ Welcome to KonaCloud.io
 
 KonaCloud.io is for developers by developers. A platform to run all your back-ends, APIs and bussiness logic. Runs JavaScript on the server-side so you don't have to learn a new language.
 
-KONA is a Backend-as-a-Service platform which allows you to create data models, code custom APIs, create and use object storage buckets and reporting for your data. 
+KONA is a Backend-as-a-Service platform which allows you to create data models, code custom APIs, create and use object storage buckets and reporting for your data.
 
 KONA custom APIs are coded in the latest JavaScript. These are then executed by the all-new, super-fast  and powerful Nashorn JavaScript engine from Oracle's JVM 8.
 
@@ -41,7 +41,7 @@ We strive to create very simple and efficient helper functions so you don't have
 
 # JavaScript
 
-We love JavaScript and all of KonaCloud.IO is based on JavaScript libraries and functions. 
+We love JavaScript and all of KonaCloud.IO is based on JavaScript libraries and functions.
 
 Here are useful links to JavaScript reference and user guides that will help you be more efficient and productive.
 
@@ -86,23 +86,23 @@ You can use JS Object or Java Object, for example
 ```
 
 var test = function() {
-    
+
     var obj = kona.obj();
     obj.put("name","obj1");
-    
+
     model.insert(obj);
-    
+
     var obj2 = new Object();
     obj2.name = "obj2";
-    
+
     model.insert(obj2);
-    
+
     var obj3 = {
         name : "obj3"
     };
-    
+
     model.insert(obj3);
-    
+
 };
 
 ```
@@ -117,7 +117,7 @@ log("This is a common log");
 log.err("Hi this is han error");
 log.info("This is han info log");
 log.war("This is han warining log");
-    
+
 ```
 
 If you use the "Debug" Button you can see the logs for the test method, and web yous clientes acces to the resources then the logs area stored and you can see them in the Log View
@@ -125,7 +125,7 @@ If you use the "Debug" Button you can see the logs for the test method, and web 
 and the result is something like this
 
 ```
-//Use log('text') to log 
+//Use log('text') to log
 This is a common log
 [ERROR] Wed Jun 18 2014 01:22:21 GMT-0300 (UYT)Hi this is han error
 [INFO] Wed Jun 18 2014 01:22:21 GMT-0300 (UYT)This is han info log
@@ -217,12 +217,12 @@ kona.email.send('email@server.com','Subject','Content');
 #### Settings and Customize
 
 ```
-    var m = kona.email;    
+    var m = kona.email;
     m.put("smtp","smtp.gmail.com");
     m.put("user","cloudkona@gmail.com");
     m.put("port","587");
     m.put("pass","mypass");
-    
+
     m.send("some@gmail.com","kona hi!","hola mail");
 ```
 
@@ -231,7 +231,7 @@ Advanced
 
 ```
 load("nashorn:mozilla_compat.js");
-importPackage(org.kona.js.mail); 
+importPackage(org.kona.js.mail);
 ```
 
 
@@ -271,11 +271,11 @@ var obj = kona.obj();
 var api = kona.api.get();
 var r = api.call("http://api.openweathermap.org/data/2.1/weather/city/3441575?units=metric");
 obj.put('temperatura',r.get("main").get("temp"));
-return obj; 
+return obj;
 }
 ```
 
-La respuesta es 
+La respuesta es
 ```
 {
 temperatura: 19.25
@@ -391,14 +391,14 @@ One line code Geocode api
 
 ```
   kona.map.geocode("uruguay montevideo charrua 1880");
-  
+
 ```
 result
 
 ```
 { "latitude" : -34.9062205 ,
   "longitude" : -56.174852}
-  
+
 ```
 
 One line code Geocode reverse api
@@ -418,7 +418,7 @@ result
   "latitude" : -34.9062205 ,
   "country" : "Uruguay" ,
   "city" : "Montevideo"}
-  
+
 ```
 
 Demo Video
@@ -433,7 +433,7 @@ http://www.youtube.com/watch?v=wAtOfGyngiY&feature=youtu.be
 
 ```
     return kona.img.qr("some text");
-  
+
 ```
 
 Demo video:
@@ -449,7 +449,7 @@ One line code
 
 ```
     return kona.net.search("konacloud.org");
-  
+
 ```
 
 ### Misc Utils
@@ -495,11 +495,11 @@ One line code
 
 ```
   kona.sms.send('12312312','my sms text');
-  
+
   Important the number must have the country code, because is global :)
-  
+
   for example for Uruguay 59899123123 for the number 099 123 123
-  
+
 ```
 
 Demo Video
@@ -527,11 +527,11 @@ function get(){
     out.put('name','kona');M
     out.put('lastname','cloud');
     out.put('time',simple.format(new java.util.Date()));
-    
+
     var doc = kona.file();
     doc.add(out);
     url = doc.build();
-    
+
     kona.email.send("santiago@konacloud.org","The PDF","Here is the pdf " + url)
     return out;
 }
@@ -570,7 +570,7 @@ The result is a list of json in kona always jsons we deal with, or to facilitate
 function get(){
     db = kona.db("mydb1");
     list = db.query("select * from my_table"); //list is a json list
-    
+
     //example
     first = list.get(0);
     name = first.get("name");
@@ -601,15 +601,15 @@ importPackage(org.kona.js);
 // call this before the form is builded
 function onBefore() {
 
-    var form = kona.obj();   
+    var form = kona.obj();
     form.put("field0",1);
-    
+
     list1 = kona.list();
     for (var i=0;i<99;i++){
         list1.add("cliente " + i);
-    }    
+    }
     form.put("field1",list1);
-    
+
     list2 = kona.list();
     for (var i=0;i<99;i++){
         var obj = kona.obj();
@@ -617,9 +617,9 @@ function onBefore() {
         obj.put("last name","last "+i);
         list2.add(obj);
     }
-    
+
     form.put("field3",list2);
-    
+
 	return form;
 }
 
@@ -642,15 +642,15 @@ Just do it!
 // call this before the form is builded
 function onBefore() {
 
-    var form = kona.obj();   
+    var form = kona.obj();
     form.put("text1","Valor por defecto");
-    
+
     var model = kona.model('person');
     form.put("table1",model.all());
-    
+
     form.put("table1.visibleColumns", "name,email");
     form.put("table1.columnHeaders", "Nombre,Correo");
-    
+
 	return form;
 }
 
@@ -676,9 +676,39 @@ Each bucket created in KONA has a unique url you can POST and GET files from. An
 
 #Schedule
 
+Como ejecutar un cron job en Kona.
 
+Creamos nuestro metodo y lo guardamos como JOB.
+
+![ScreenShot](http://i.imgur.com/GblhAFm.png)
+
+Deberiamos poder verlo de la siguiente manera
+
+![ScreenShot](http://i.imgur.com/bAJvpzq.png)
+
+Ahora en la ventana de Schedule, definimos el Cron Tab (Unix Cron Tab)
+
+Ejemplos de unix cron tabs
 http://en.wikipedia.org/wiki/Cron#Examples
 
+Se puede partir de una ayuda visual para armar el cron, indicando minutos, horas, dia, mes, week
+
+Si se ingresa un * en horas significa todas las horas por ejemplo, y si se ingresa 1 significa solo la hora 1.
+
+![ScreenShot](http://i.imgur.com/otZxl5R)
+
+
+Luego se puede editar manualmente el cron tab, verificar que sea valido el ingresado
+
+![ScreenShot](http://i.imgur.com/yaq0MC7)
+
+
+De cada Cron Job vemos la siguiente informacion y tenemos las siguientes opciones
+![ScreenShot](http://i.imgur.com/D4ArwEu)
+
+Podemos ejecutarlo y ver en la KConsole sus logs de ejecucion y el resultado si es que existe.
+
+Para ver los logs de las ejecuciones programadas hacer click en Logs
 
 kona.js
 
@@ -695,7 +725,7 @@ We allow developers to add code and just send us the pull request
 
 ## How add code to OpenKonaJS
 
-Its simple, 
+Its simple,
 
 Tools:
 
@@ -764,19 +794,3 @@ HTML tag regular expression
 HTML Links regular expression
 (?i)<a([^>]+)>(.+?)</a>
 \s*(?i)href\s*=\s*(\"([^"]*\")|'[^']*'|([^'">\s]+));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
