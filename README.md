@@ -820,9 +820,49 @@ Finaly add ha test case for your method in the apropiate package.
 
 
 
-# UI Views
+# Model View
 
-## Model View
+## Model Validations
+
+Los models son una ayuda para el usuario utilizar una estructura orientada a su negocio, de todas maneras
+Kona no obliga a que los models tengan atributos ni que se respete su estructura si el usuario no lo desea, tenemos en cuenta la flexibilidad ya que no todas las aplicaciones tienen modelos estructurados y definidos.
+
+Que gana el Usuario al definir sus Models y atributos:
+
+Apis ya creadas y definidas
+Validaciones
+BackOffice Autogenerado
+
+## Validaciones
+
+Se definen validacinoes para cada atributo.
+
+### NN (Not Null)
+
+Significa que el valor del atributo no puede ser null. Si lo es una exception de tipo
+KonaException es lanzada, con un mensaje por defecto auque puede ser customizable.
+
+### UK (Unique Key)
+
+Significa que no puede haber en ese modelo otra entidad con ese valor para ese atributo
+
+### RegExp (Math Regular Expresion)
+
+Valido solo para atributos de tipo String, la idea es validar su valor contra una expresion regular
+
+### Error Messages
+
+Por mensaje Kona tiene ciertos mensajes de error, que pueden no aplicar si estos se usan para el usuario final en un cliente, por lo que dejamos que se puedan definir mensajes para cada uno de estos errores.
+
+En los mensajes se puede hacer referencia al valor ingresando {value} en el texto, por ejemplo
+
+The email {value} is invalid
+
+entonces para el email email@example.com el error sera
+
+The email email@example.com is invalid
+
+### RegExpresion Examples
 
 Attributes validations, you can use a regexp to valida han attribute, for example
 
