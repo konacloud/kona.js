@@ -56,7 +56,7 @@ Mozilla's JavaScript Reference
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 
 
-Kona APP Architecture
+#Kona APP Architecture
 
 ![ScreenShot](http://i.imgur.com/bS6AJu3.png)
 
