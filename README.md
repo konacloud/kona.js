@@ -246,60 +246,6 @@ var test = function(){
 The objective of this service is to provide an api to handle entities defined with functionality 'Model',
 definimo eg if an entity 'person' to perform operariones with her and the others.
 
-### Insert
-
-
-```
-var m = kona.model.open("person");
-m.insert(person);
-```
-
-### Upadte
-
-```
-var m = kona.model.open("person");
-m.save(person);
-
-```
-### Delete
-
-
-#### Delete By ID
-```
-var m = kona.model.open("person");
-m.deleteById("53486986a09e2c778e82bc37");
-
-```
-
-### Query List
-
-```
-var m = kona.model.open("person");
-var list = m.query('person',"{name:'me'}"); //obtenemos todas las personas con nombre igual a 'me'
-
-```
-
-### Query By Id
-
-```
-var m = kona.model.open("person");
-m.queryById("id1");
-
-```
-
-### Query Single
-
-```
-obj = kona.obj();
-obj.put("field1","some");
-var m = kona.model.open("person").query(obj).get(0);
-
-```
-
-## Model Service API
-
-
-# Model Services
 
 Are the services provided by KONA for managing entities, queries and their relationships.
 As an example we will compare what we do with sql engines, how we do in KONA.
@@ -390,7 +336,25 @@ mc.findAndDelete(barto);
 
 ## Query
 
-Queries (New Kona Query Engine)
+## Simple methods (deprecated)
+
+### Query List
+
+```
+var m = kona.model.open("person");
+var list = m.query('person',"{name:'me'}"); //obtenemos todas las personas con nombre igual a 'me'
+
+```
+
+### Query By Id
+
+```
+var m = kona.model.open("person");
+m.queryById("id1");
+
+```
+
+## Queries (New)
 
 We will build the query with all the thing that we like, params, regexp, sorters, etc, and finaly we get the result in ha list or in a single element
 
