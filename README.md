@@ -239,126 +239,7 @@ var test = function(){
 ```
 
 
-### Helpers
 
-#### Fast Way (One line email)
-
-```
-kona.email.send('email@server.com','Subject','Content');
-
-```
-
-#### Settings and Customize
-
-```
-    var m = kona.email;
-    m.put("smtp","smtp.gmail.com");
-    m.put("user","cloudkona@gmail.com");
-    m.put("port","587");
-    m.put("pass","mypass");
-
-    m.send("some@gmail.com","kona hi!","hola mail");
-```
-
-
-Advanced
-
-```
-load("nashorn:mozilla_compat.js");
-importPackage(org.kona.js.mail);
-```
-
-
-Extended Sample
-```
-
-var email = new Email();
-email.setFromAddress("taio", "taio@linux-mail.com");
-email.setSubject("hey");
-email.addRecipient("other", "some@kona.org", RecipientType.TO);
-email.addRecipient("diego", "some@kona.org", RecipientType.BCC);
-email.setText("Kona");
-email.setTextHTML("<img src='..'><b>some text</b><img src='..'>");
-
-email.addEmbeddedImage("wink1", imageByteArray, "image/png");
-email.addEmbeddedImage("wink2", imageDatesource);
-email.addAttachment("invitation", pdfByteArray, "application/pdf");
-email.addAttachment("dresscode", odfDatasource);
-
-m.send(email);
-
-```
-
-
-## Api Services
-
-Api to communicate by rest to other services on the web.
-
-Supported Protocols and Architectures
-REST (json)
-
-### Fast Way
-
-```
-function f(){
-	var obj = kona.obj();
-	var api = kona.api.get();
-	var r = api.call("http://api.openweathermap.org/data/2.1/weather/city/3441575?units=metric");
-	obj.put('temperatura',r.get("main").get("temp"));
-	return obj;
-}
-```
-
-La respuesta es
-```
-{
-temperatura: 19.25
-}
-```
-
-
-
-### Metodo Get
-
-```
-var api = kona.api().get();
-}
-```
-
-#### Getting Params from URL
-
-for example http://konacloud/console/api/taio/app1/mr_person?param1=2
-
-we need the value of param1, its simple
-
-```
-
-var get = function(req){
-	var value = req.params.get("param1");
-}
-```
-
-### Metodo Post
-
-```
-var data = kona.obj();
-data.put("hola",123);
-
-var api = kona.api.post(data);
-var r = api.call("http://postexample.com");
-
-```
-
-### Metodo Put
-
-```
-var data = kona.obj();
-data.put("put",12);
-
-var api = kona.api.put(data);
-var r = api.call("http://putexample.com");
-
-```
 
 # Model Services
 
@@ -691,6 +572,127 @@ var list = mc.buildQuery(find,10,5).list();
 
 ```
 
+
+## Helpers
+
+#### Fast Way (One line email)
+
+```
+kona.email.send('email@server.com','Subject','Content');
+
+```
+
+#### Settings and Customize
+
+```
+    var m = kona.email;
+    m.put("smtp","smtp.gmail.com");
+    m.put("user","cloudkona@gmail.com");
+    m.put("port","587");
+    m.put("pass","mypass");
+
+    m.send("some@gmail.com","kona hi!","hola mail");
+```
+
+
+Advanced
+
+```
+load("nashorn:mozilla_compat.js");
+importPackage(org.kona.js.mail);
+```
+
+
+Extended Sample
+```
+
+var email = new Email();
+email.setFromAddress("taio", "taio@linux-mail.com");
+email.setSubject("hey");
+email.addRecipient("other", "some@kona.org", RecipientType.TO);
+email.addRecipient("diego", "some@kona.org", RecipientType.BCC);
+email.setText("Kona");
+email.setTextHTML("<img src='..'><b>some text</b><img src='..'>");
+
+email.addEmbeddedImage("wink1", imageByteArray, "image/png");
+email.addEmbeddedImage("wink2", imageDatesource);
+email.addAttachment("invitation", pdfByteArray, "application/pdf");
+email.addAttachment("dresscode", odfDatasource);
+
+m.send(email);
+
+```
+
+
+## Api Services
+
+Api to communicate by rest to other services on the web.
+
+Supported Protocols and Architectures
+REST (json)
+
+### Fast Way
+
+```
+function f(){
+	var obj = kona.obj();
+	var api = kona.api.get();
+	var r = api.call("http://api.openweathermap.org/data/2.1/weather/city/3441575?units=metric");
+	obj.put('temperatura',r.get("main").get("temp"));
+	return obj;
+}
+```
+
+La respuesta es
+```
+{
+temperatura: 19.25
+}
+```
+
+
+
+### Metodo Get
+
+```
+var api = kona.api().get();
+}
+```
+
+#### Getting Params from URL
+
+for example http://konacloud/console/api/taio/app1/mr_person?param1=2
+
+we need the value of param1, its simple
+
+```
+
+var get = function(req){
+	var value = req.params.get("param1");
+}
+```
+
+### Metodo Post
+
+```
+var data = kona.obj();
+data.put("hola",123);
+
+var api = kona.api.post(data);
+var r = api.call("http://postexample.com");
+
+```
+
+### Metodo Put
+
+```
+var data = kona.obj();
+data.put("put",12);
+
+var api = kona.api.put(data);
+var r = api.call("http://putexample.com");
+
+```
 
 ## Push Notifications
 
