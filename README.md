@@ -243,10 +243,6 @@ var test = function(){
 
 # Model Services
 
-The objective of this service is to provide an api to handle entities defined with functionality 'Model',
-definimo eg if an entity 'person' to perform operariones with her and the others.
-
-
 Are the services provided by KONA for managing entities, queries and their relationships.
 As an example we will compare what we do with sql engines, how we do in KONA.
 The first thing we do is create the contorlador of our model (Model Controller) to access their APIs.
