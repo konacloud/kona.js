@@ -332,7 +332,9 @@ for example http://konacloud/console/api/taio/app1/mr_person?param1=2
 we need the value of param1, its simple
 
 ```
-var value = request.get("param1");
+
+var get = function(req){
+	var value = req.params.get("param1");
 }
 ```
 
@@ -358,7 +360,7 @@ var r = api.call("http://putexample.com");
 
 ```
 
-## Model Services
+# Model Services
 
 The objective of this service is to provide an api to handle entities defined with functionality 'Model',
 definimo eg if an entity 'person' to perform operariones with her and the others.
@@ -367,11 +369,8 @@ definimo eg if an entity 'person' to perform operariones with her and the others
 
 
 ```
-
-
 var m = kona.model.open("person");
 m.insert(person);
-
 ```
 
 ### Upadte
@@ -415,6 +414,283 @@ obj.put("field1","some");
 var m = kona.model.open("person").query(obj).get(0);
 
 ```
+
+## Model Service API
+
+
+# Model Services
+
+Are the services provided by KONA for managing entities, queries and their relationships.
+As an example we will compare what we do with sql engines, how we do in KONA.
+The first thing we do is create the contorlador of our model (Model Controller) to access their APIs.
+For example suppose you have a Person model with name, lastName attributes, and email
+
+```
+var mc = kona.model.open("Person");
+```
+
+The rest of you will be varible mc (Model Controller for Person).
+
+## Insert a New Object
+
+
+```
+var person = {
+	name : "Bart",
+	lastName : "Simpson",
+	email : "bart@konacloud"
+}
+
+mc.insert(person);
+```
+
+With this always insert a new entity and creates ha new id for the object, if we get this object its looks like
+```
+var person = {
+	name : "Bart",
+	lastName : "Simpson",
+	email : "bart@konacloud",
+	_id : "51243na314aae34"
+}
+```
+
+## Update a Object
+
+### Update By Id
+
+To update an object is necessary to know its id.
+Later when we see the queries, they get the id of all the items you want.
+
+```
+var person = {
+	name : "Bartolomeo",
+	lastName : "Simpson",
+	email : "bart@konacloud.io",
+	_id : "51243na314aae34"
+}
+
+mc.save(person);
+```
+
+### find And Update
+
+If We want to update all the Persons who has the name eq "Bar"
+
+```
+var barto = {
+	name: "Bart"
+}
+var person {
+	lastName: "Simpson";
+}
+mc.findAndUpdate(barto, person);
+```
+
+Then all the elements with name Bart wil hace the lastName eq Simpson
+
+## Delete a Object
+
+### Delete By Id
+To delete an object is necessary to know its id.
+
+```
+mc.deleteById("51243na314aae34");
+```
+
+### find And Delete
+Same as before, if we want to delete all the Persons who has the name eq "Bar"
+
+```
+var barto = {
+	name: "Bart"
+}
+mc.findAndDelete(barto);
+```
+
+## Query
+
+Queries (New Kona Query Engine)
+
+We will build the query with all the thing that we like, params, regexp, sorters, etc, and finaly we get the result in ha list or in a single element
+
+firts of all web get the query object, here we can pass data to find or not
+
+In this example we will do it in the large way, and finaly we show some helpers
+
+### Build Query
+
+```
+var q = mc.buildQuery();
+```
+
+### Get All
+
+In SQL to get all the elements we do
+
+select * from Person, and in Kona
+
+```
+var list = q.list();
+```
+
+### Pagination
+
+in mobile applications is very common to use pagination when you scrols on list views (android) for example,
+it is very important to consider the paging when working with lots of data.
+KONA default leaves a request ModelService.MAX_QUERY bring over data elements are at most 100 non premium accounts,
+however it would be best not to have to send more request but the result page always.
+
+The page is defined as a limit and offset, so the pages may have dynamic size.
+
+```
+q = q.limit(10).offset(5);
+var list = q.list();
+
+or justo
+
+var list = q.limit(10).offset(5).list();
+```
+we get at max 10 elements but we skip the firs 5 elements
+
+### Complex Queries
+
+Select * from Person where name = "Bart";
+
+```
+var find = {
+	name : "Bart"
+}
+var list = q.find(find).list();
+```
+
+If we know that our query will result in a single result allway, search by id or some atribute that is unique (see Contrasits).
+
+We can do this in any query.
+
+```
+var find = {
+	name : "Bart"
+}
+var person = q.find(find).single();
+```
+
+Of course the object find can have many atributes as we want.
+
+Query Examples
+
+### Compare atributes in Queries
+
+SELECT * FROM Person WHERE name = "Bart" OR lastName = "Simpson"
+
+```
+find = { $or: [{ name: "Bart"},{lastName:"Simpson"}] };
+var list = q.find(find).list();
+```
+
+If the person has an age, and we have to to the all the persons with age > 25
+
+SELECT * FROM Person WHERE age > 25;
+
+```
+find = { age: { $gt: 25 } };
+var list = q.find(find).list();
+```
+
+age > 25 --> $gt: 25
+age < 25 --> $lt: 25
+
+SELECT * FROM Person WHERE age > 25 and age<=50;
+
+find = { age: { $gt: 25, $lte: 50 }
+
+### Like in Queries
+
+We can use RegExp or if the only thing tha we need is the like we can do this.
+
+SELECT * FROM Person WHERE name like "%Bart%";
+
+```
+var find = {
+	name : "/ar/"
+}
+var person = q.find(find).list();
+```
+
+### Sorting
+
+SELECT * FROM Person order by age ASC
+
+```
+var find = {
+	name : "/ar/"
+}
+
+var sorter = {
+	age : 1
+}
+var person = q.find(find).sort(sorter).list();
+```
+
+SELECT * FROM Person order by age DESC
+
+```
+var find = {
+	name : "/ar/"
+}
+
+var sorter = {
+	age : -1
+}
+var person = q.find(find).sort(sorter).list();
+```
+
+### Count
+
+Select count(*) from Person where name = "Bart";
+
+```
+var find = {
+	name : "Bart"
+}
+var size = q.find(find).count();
+```
+
+### Get Only Some params
+
+This is very important if we have 10 atributes but we only need 2 to show up.
+
+
+```
+var find = {
+	name : "Bart"
+}
+
+var keys = {
+	name: 1
+}
+var names = q.find(find).keys(keys).list();
+```
+
+This will list only the names of the Persons
+
+
+### Short way to Start
+
+
+```
+
+var mc = kona.model.open("Person");
+
+var find = {
+	name : "Bart"
+}
+
+var list = mc.buildQuery(find).list();
+
+var list = mc.buildQuery(find,10,5).list();
+
+```
+
 
 ## Push Notifications
 
