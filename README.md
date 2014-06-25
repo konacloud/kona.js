@@ -14,22 +14,23 @@ Developer Portal: http://developer.konacloud.io
 
 ## Videos
 
-30 minutes duration http://vimeo.com/82645251
+Hello work 40 sec Video 
 
-Kona-Facebook Demo Video
+https://www.youtube.com/watch?v=vTJpU-TGKMU
 
+Kona first Video 30 minutes duration
+
+http://vimeo.com/82645251
+
+Kona-Facebook Demo Video (Deprecated)
 http://www.youtube.com/watch?v=_tJVz3I9uts&feature=youtu.be
-
-Kona-Twitter Demo Video
-
 http://www.youtube.com/watch?v=QMZbURzh1eE
 
-Kona-SMS Video
 
+Kona-SMS Video
 http://www.youtube.com/watch?v=YnOMuFf7q0E&feature=youtu.be
 
 Kona GeoCode Example
-
 http://www.youtube.com/watch?v=wAtOfGyngiY&feature=youtu.be
 
 
@@ -54,6 +55,92 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
 Mozilla's JavaScript Reference
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 
+
+Kona APP Architecture
+
+![ScreenShot](http://i.imgur.com/bS6AJu3.png)
+
+Templates and Examples
+
+## Templates
+
+### Model Resources
+
+```
+/*
+ * @autor {userId}
+ */
+var model = kona.model.open('modelId');
+
+/*
+ * @param req is the http request, req.params.get("")
+ */
+var get = function(req) {
+	return model.all();
+};
+
+/*
+ * @param req.body is a instance of {modelId}
+ */
+var post = function(req) {
+	model.insert(req.body);
+	return kona.obj(true);
+};
+
+/*
+ * @param req.body is a instance of {modelId}
+ */
+var put = function(req) {
+	model.save(req.body);
+	return kona.obj(true);
+};
+
+/*
+ * @param req.params.get("id") is the id of the instance to delete
+ */
+var del = function(req) {
+	var id = req.params.get("id");
+	model.deleteById(id);
+	return kona.obj(true);
+};
+
+var test = function() {
+	return get();
+};
+```
+
+### Custom Resource
+
+```
+var model = kona.model.open('{modelId}');
+
+var get = function(req) {
+	
+	var id = req.params.get("id);
+	return model.queryById(id);
+};
+
+```
+### JOB
+
+```
+
+var run = function(){
+	log("hi);
+}
+```
+
+### Library
+
+```
+
+var abs = function(num){
+	if (num>0)
+		return num;
+	else
+		return num*(-1);
+}
+```
 
 Code Samples
 ===============
