@@ -60,11 +60,13 @@ Kona APP Architecture
 
 ![ScreenShot](http://i.imgur.com/bS6AJu3.png)
 
+
 Templates and Examples
+===============
 
-## Templates
+# Templates
 
-### Model Resources
+## Model Resources
 
 ```
 /*
@@ -109,7 +111,7 @@ var test = function() {
 };
 ```
 
-### Custom Resource
+## Custom Resource
 
 ```
 var model = kona.model.open('{modelId}');
@@ -121,7 +123,7 @@ var get = function(req) {
 };
 
 ```
-### JOB
+## JOB
 
 ```
 
@@ -130,7 +132,7 @@ var run = function(){
 }
 ```
 
-### Library
+## Library
 
 ```
 
@@ -141,6 +143,7 @@ var abs = function(num){
 		return num*(-1);
 }
 ```
+
 
 Code Samples
 ===============
