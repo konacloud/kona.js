@@ -64,8 +64,6 @@ Kona APP Architecture
 Templates and Examples
 ===============
 
-# Templates
-
 ## Model Resources
 
 ```
@@ -154,7 +152,6 @@ Code Samples
 
 You can create and use JS Object and them pass they to the kona methods
 
-One Wey
 
 ```
 
@@ -171,7 +168,7 @@ var str = JSON.stringify(obj); //this is a String.
 ### HOW to Use Object in Kona
 
 
-You can use JS Object or Java Object, for example
+Diferents ways to create objects, you can use JS Object or Java Object, for example
 
 ```
 
@@ -255,7 +252,6 @@ usually an object of type KonaDO compliant json format with other properties.
 The following are valid
 
 ```
-var obj = new KonaDO(); //o
 var obj = kona.obj();
 ```
 ### List
@@ -265,22 +261,15 @@ var obj = new ArrayList<KonaDO>(); //o
 var obj = kona.list();
 ```
 
-
-### Mails
-
-Sending mails is performed as follows
-You can configure a service itself or use the default mails having kona.
-
-
-
 ### Request Structure
 
 Cada request a un resource viene con la siguiente estructura, por ejemplo
 
-
-req.header
-req.params
-req.body
+```
+req.header.get("some_header")
+req.params.get("some_param")
+req.body.get("field");
+```
 
 ##### Ejemplo de obtencion de un headers
 
