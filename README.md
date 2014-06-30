@@ -618,11 +618,14 @@ var list = mc.buildQuery(find,10,5).list();
 
 ## EMAIL
 
+
 There are 2 ways to send mails. 
 
 SendGrid mediantes external services such as configuring a server or SMTP as gmail. 
 
 We recommend using SendGrid. 
+
+### SENDGRID
 
 As of today has 200 mails per day free. 
 
@@ -651,39 +654,43 @@ var test = function(){
 };
 
 ```
-## SMS
 
-## Helpers
+### Custom SMTP Server
 
-#### Fast Way (One line email)
-
-```
-kona.email.send('email@server.com','Subject','Content');
+Example with Gmail
 
 ```
-
-#### Settings and Customize
-
+var test = function(){
+    
+    var conf = {
+        smtp : "smtp.gmail.com",
+        port : "587",
+        user : "account@gmail.com",
+        pass : "password"
+    };
+    
+    var ms = kona.email.open(conf);
+    
+    var email = {
+        to : "some@email.com",
+        subject : "Hi",
+        text : "Hi from kona"
+    }
+    
+    ms.send(email);
+};
 ```
-    var m = kona.email;
-    m.put("smtp","smtp.gmail.com");
-    m.put("user","cloudkona@gmail.com");
-    m.put("port","587");
-    m.put("pass","mypass");
+#### Advanced Configuration
 
-    m.send("some@gmail.com","kona hi!","hola mail");
-```
+Import and use direct the Simple Java Mail Api
 
-
-Advanced
+more info  https://code.google.com/p/simple-java-mail/wiki/Manual
 
 ```
 load("nashorn:mozilla_compat.js");
 importPackage(org.kona.js.mail);
 ```
 
-
-Extended Sample
 ```
 
 var email = new Email();
@@ -702,6 +709,30 @@ email.addAttachment("dresscode", odfDatasource);
 m.send(email);
 
 ```
+
+### Using Kona Mail Sender
+
+```
+kona.email.send('email@server.com','Subject','Content');
+
+```
+
+## SMS
+
+```
+  kona.sms.send('12312312','my sms text');
+
+  Important the number must have the country code, because is global :)
+
+  for example for Uruguay 59899123123 for the number 099 123 123
+
+```
+
+Demo Video
+http://www.youtube.com/watch?v=4TACroSs-rA&feature=youtu.be
+
+
+# SERVICES
 
 
 ## Api Services
@@ -730,25 +761,10 @@ temperatura: 19.25
 }
 ```
 
-
-
 ### Metodo Get
 
 ```
 var api = kona.api().get();
-}
-```
-
-#### Getting Params from URL
-
-for example http://konacloud/console/api/taio/app1/mr_person?param1=2
-
-we need the value of param1, its simple
-
-```
-
-var get = function(req){
-	var value = req.params.get("param1");
 }
 ```
 
@@ -774,11 +790,11 @@ var r = api.call("http://putexample.com");
 
 ```
 
-## Push Notifications
+# Push Notifications
 
-### Andorid Push Notification
+## Andorid Push Notification
 
-#### Server Side
+### Server Side
 
 Primero agregar el Android APiKey en el Settings de la aplicacion
 
@@ -798,14 +814,14 @@ var test = function(){
 
 ```
 
-#### Client Side
+### Client Side
 
 Ejemplo del codigo para el cliente se puede encontrar en 
 
 https://github.com/konacloud/samples/tree/master/android%20push%20notification%20example
 
 
-### IOS Push Notifications
+## IOS Push Notifications
 
 ```
 var test = function(){
@@ -818,7 +834,7 @@ var test = function(){
 
 ```
 
-## Map Service
+# GeoCoding
 
 The idea is to have an api to work with maps and locations
 
@@ -862,7 +878,7 @@ Demo Video
 http://www.youtube.com/watch?v=wAtOfGyngiY&feature=youtu.be
 
 
-## Img Util Service
+# Utils
 
 
 ### QR Generation
@@ -922,31 +938,9 @@ public DBObject ip2dn(String ip) throws Exception;
 
 ```
 
-## SMS Service
-
-The idea is to have an api to send sms
-
-One line code
 
 
-```
-  kona.sms.send('12312312','my sms text');
-
-  Important the number must have the country code, because is global :)
-
-  for example for Uruguay 59899123123 for the number 099 123 123
-
-```
-
-Demo Video
-
-http://www.youtube.com/watch?v=4TACroSs-rA&feature=youtu.be
-
-
-### Basic
-
-
-## File Service
+# File Service
 
 The File Service is to create files, pdf, txt, doc or ms ms docx, html formats are supported.
 
@@ -954,7 +948,7 @@ The idea is to write rich text (html) and convert them to other formats, persist
 
 
 
-### Example: Making a PDF and Sendit by email
+##sms Example: Making a PDF and Sendit by email
 
 
 ```
