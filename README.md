@@ -619,6 +619,123 @@ var list = mc.buildQuery(find,10,5).list();
 
 ```
 
+## REDIS
+
+Redis is an open source, BSD licensed, advanced key-value store. It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets and sorted sets.
+
+more info http://redis.io/
+
+We recomend the use of redislab as the redis cloud provider
+
+http://redislabs.com/
+
+Code Example
+
+```
+var test = function(){
+    
+    var conf = {
+        url : "pub-redis-16812.us-east-1-3.4.ec2.garantiadata.com",
+        port: 16812
+    }
+    
+    var r = kona.redis.open(conf);
+    r.set("key","Kona");
+    
+    return r.get("key");
+};
+```
+
+## MemCache
+
+Free & open source, high-performance, distributed memory object caching system, generic in nature, but intended for use in speeding up dynamic web applications by alleviating database load.
+
+Memcache is no for persistence, its only a cache.
+
+We also recomend to use redislab
+
+CodeExample
+
+```
+var test = function(){
+    
+    var conf = {
+        url : "pub-redis-16812.us-east-1-3.4.ec2.garantiadata.com",
+        port: 16812
+    }
+    
+    var r = kona.redis.open(conf);
+    r.set("key","Kona");
+    
+    return r.get("key");
+};
+```
+
+## MySQL
+
+We reomend the use of cloud mysql prividers
+
+
+http://aws.amazon.com/es/rds/mysql/
+
+https://www.cleardb.com/
+
+```
+var test = function(){
+    var conn = {
+        url : "smartech.com.uy:3306/sakila",
+        user : "dba",
+        password : "matematica"
+    }
+    
+    var cm = kona.mysql.open(conn);
+    
+    var result = cm.run("SELECT * FROM sakila.actor limit 100");
+    return result;
+};
+```
+
+The result is a json like this
+
+```
+[{ "actor_id" : 1 ,
+  "first_name" : "PENELOPE" ,
+  "last_name" : "GUINESS" ,
+  "last_update" : { "$date" : "2006-02-15T06:34:33.000Z"}}]
+```
+
+## PostGress
+
+We reomend the use of cloud postgress prividers
+
+https://www.heroku.com/postgres
+
+http://www.elephantsql.com/
+
+
+```
+var test = function(){
+    var conn = {
+        url : "ec2-54-197-250-40.compute-1.amazonaws.com:5432/dbs0egkrel1vj5?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory",
+        user : "gqlycejaedesyn",
+        password : "mAPLqdMr7YU_I8qMZhUTyr_vhm"
+    }
+    
+    var cm = kona.postgress.open(conn);
+    
+    var result = cm.run("select * from films limit 2");
+    return result;
+};
+```
+
+The result is a json like this
+
+```
+[{ "code" : "a    " ,
+  "title" : "A"},
+  { "code" : "b    " ,
+  "title" : "B"}]
+```
 # COMUNICATION
 
 ## EMAIL
