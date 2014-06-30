@@ -12,7 +12,7 @@ KONA custom APIs are coded in the latest JavaScript. These are then executed by 
 Website: http://konacloud.io
 Developer Portal: http://developer.konacloud.io
 
-## Videos
+# Videos
 
 Hello work 40 sec Video 
 
@@ -146,9 +146,9 @@ var abs = function(num){
 Code Samples
 ===============
 
-## BasicServices
+# BasicServices
 
-### Object JS Mode
+## Object JS Mode
 
 You can create and use JS Object and them pass they to the kona methods
 
@@ -165,7 +165,7 @@ var str = JSON.stringify(obj); //this is a String.
 ```
 
 
-### HOW to Use Object in Kona
+## HOW to Use Object in Kona
 
 
 Diferents ways to create objects, you can use JS Object or Java Object, for example
@@ -194,9 +194,9 @@ var test = function() {
 
 ```
 
-##Basic Uses
+#Basic Uses
 
-####How to Log
+##How to Log
 
 Yo can log all kond of stuff, for example
 ```
@@ -219,7 +219,7 @@ This is a common log
 [WAR] Wed Jun 18 2014 01:22:21 GMT-0300 (UYT)This is han warining log
 ```
 
-### TEST (Traducir)
+## TEST (Traducir)
 
 Cada api debe implementar el metodo test para poder ser utiliada en la test suite.
 El metodo test es un test unitario del recurso o metodo que se esta programando.
@@ -244,7 +244,7 @@ Ademas se pueden hacer cosas como
 
 Consideramos una buena practica que todos los metodos tengan su test, auque deben tener cuidado de no insertar datos en cada test (queda a criterio del desarrollador)
 
-### Object (Simple Java Object KonaDO)
+## Object (Simple Java Object KonaDO)
 
 You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
 usually an object of type KonaDO compliant json format with other properties.
@@ -254,14 +254,14 @@ The following are valid
 ```
 var obj = kona.obj();
 ```
-### List
+## List
 
 ```
 var obj = new ArrayList<KonaDO>(); //o
 var obj = kona.list();
 ```
 
-### Request Structure
+## Request Structure
 
 Cada request a un resource viene con la siguiente estructura, por ejemplo
 
@@ -271,7 +271,7 @@ req.params.get("some_param")
 req.body.get("field");
 ```
 
-##### Ejemplo de obtencion de un headers
+### Ejemplo de obtencion de un headers
 
 ```
 var get = function(req) {
@@ -279,7 +279,7 @@ var get = function(req) {
 };
 ```
 
-##### Obtener parametro URL
+### Obtener parametro URL
 
 ```
 var get = function(req) {
@@ -287,7 +287,7 @@ var get = function(req) {
 };
 ```
 
-### Libraries
+## Libraries
 
 Para definir librerias y utlizar en cualquier resource/job o otra libreria
 
