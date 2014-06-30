@@ -64,9 +64,6 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 Templates and Examples
 ===============
 
-
-# STORAGE
-
 ## Model Resources
 
 ```
@@ -321,9 +318,10 @@ var test = function(){
 ```
 
 
+# STORAGE
 
 
-# Model Services
+## Model Services
 
 Are the services provided by KONA for managing entities, queries and their relationships.
 As an example we will compare what we do with sql engines, how we do in KONA.
@@ -336,7 +334,7 @@ var mc = kona.model.open("Person");
 
 The rest of you will be varible mc (Model Controller for Person).
 
-## Insert a New Object
+### Insert a New Object
 
 
 ```
@@ -359,7 +357,7 @@ var person = {
 }
 ```
 
-## Update a Object
+### Update a Object
 
 ### Update By Id
 
@@ -377,7 +375,7 @@ var person = {
 mc.save(person);
 ```
 
-### find And Update
+#### find And Update
 
 If We want to update all the Persons who has the name eq "Bar"
 
@@ -393,7 +391,7 @@ mc.findAndUpdate(barto, person);
 
 Then all the elements with name Bart wil hace the lastName eq Simpson
 
-## Delete a Object
+### Delete a Object
 
 ### Delete By Id
 To delete an object is necessary to know its id.
@@ -412,10 +410,6 @@ var barto = {
 mc.findAndDelete(barto);
 ```
 
-## Query
-
-## Simple methods (deprecated)
-
 ### Query List
 
 ```
@@ -432,7 +426,7 @@ m.queryById("id1");
 
 ```
 
-## Queries (New)
+### Queries (New)
 
 We will build the query with all the thing that we like, params, regexp, sorters, etc, and finaly we get the result in ha list or in a single element
 
