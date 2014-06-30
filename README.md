@@ -64,6 +64,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 Templates and Examples
 ===============
 
+
+# STORAGE
+
 ## Model Resources
 
 ```
@@ -611,6 +614,44 @@ var list = mc.buildQuery(find,10,5).list();
 
 ```
 
+# COMUNICATION
+
+## EMAIL
+
+There are 2 ways to send mails. 
+
+SendGrid mediantes external services such as configuring a server or SMTP as gmail. 
+
+We recommend using SendGrid. 
+
+As of today has 200 mails per day free. 
+
+then create the user account and get a pass. 
+
+Example of code.
+
+```
+var test = function(){
+    var conf = {
+        user: "user",
+        password : "password"
+    }
+    
+    var ms = kona.sendgrid.open(conf);
+    
+    var email = {
+        to : "some@email.com",
+        from : "info@yourcompany.com",
+        fromName : "Your Company",
+        subject : "Subject",
+        text : "Some text"
+    }
+    
+    ms.send(email);
+};
+
+```
+## SMS
 
 ## Helpers
 
