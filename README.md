@@ -806,10 +806,9 @@ Luego desde el codigo hacemos lo siguiente
 ```
 var test = function(){
     
-    var obj = kona.obj("message","Hi from kona");
-    obj.put("time",(new Date()).getTime());
-    kona.notifications.push("fc85574de6588e5926d286743e1b99f5aa8fd5fa1f600612a4b01376695fcad6",obj.toString());
-    return kona.obj(true);
+    var payload = kona.obj("message","Hi from kona");
+    payload.put("time",(new Date()).getTime());
+    kona.notifications.androidPush("token",payload)
 };
 
 ```
