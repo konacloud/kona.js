@@ -704,7 +704,7 @@ The result is a json like this
   "last_update" : { "$date" : "2006-02-15T06:34:33.000Z"}}]
 ```
 
-## PostGress
+## PostGres
 
 We reomend the use of cloud postgress prividers
 
@@ -721,7 +721,7 @@ var test = function(){
         password : "mAPLqdMr7YU_I8qMZhUTyr_vhm"
     }
     
-    var cm = kona.postgress.open(conn);
+    var cm = kona.postgres.open(conn);
     
     var result = cm.run("select * from films limit 2");
     return result;
