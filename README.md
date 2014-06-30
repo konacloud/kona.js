@@ -827,7 +827,7 @@ var test = function(){
     
     var payload = {"aps":{"alert":{"body":"push desde KONA","title":"el titulo","action":"Si o no?"},"sound":"default","badge":1},"micampo":"valor"};
 
-	kona.notifications.push("fc85574de6588e5926d286743e1b99f5aa8fd5fa1f600612a4b01376695fcad6",JSON.stringify(payload));
+	kona.notifications.iosPush("fc85574de6588e5926d286743e1b99f5aa8fd5fa1f600612a4b01376695fcad6",JSON.stringify(payload));
     return kona.obj(true);
 };
 
