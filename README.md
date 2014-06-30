@@ -664,8 +664,9 @@ var test = function(){
         port: 16812
     }
     
-    var r = kona.redis.open(conf);
-    r.set("key","Kona");
+    var r = kona.memcache.open(conf);
+    
+    r.set("key",3600,"Kona"); //one hour
     
     return r.get("key");
 };
