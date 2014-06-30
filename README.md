@@ -796,12 +796,9 @@ var r = api.call("http://putexample.com");
 
 ### Server Side
 
-Primero agregar el Android APiKey en el Settings de la aplicacion
+First add the Android APiKey in the app lication settings
 
-![ScreenShot](http://i.imgur.com/RQUB62J.png)
-
-
-Luego desde el codigo hacemos lo siguiente
+Code Example
 
 ```
 var test = function(){
