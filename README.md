@@ -320,6 +320,17 @@ var test = function(){
 
 # STORAGE
 
+The KONA default persistence is through the Model Service. 
+
+The first thing to do is define our models, indicating for each attribute the name and type, in addition to the validations. 
+
+If the user does not want to use this mecanism, KONA gives the possibility to use 
+
+ - Redis 
+ - Memcache 
+ - MySQL 
+ - Postgress
+
 
 ## Model Services
 
