@@ -947,11 +947,12 @@ The idea is to write rich text (html) and convert them to other formats, persist
 
 
 
-##sms Example: Making a PDF and Sendit by email
+##Making a PDF and Sendit by email
 
 
 ```
 function get(){
+    
     out = kona.obj();
     out.put('name','kona');M
     out.put('lastname','cloud');
@@ -965,143 +966,6 @@ function get(){
     return out;
 }
 ```
-
-## DB Service
-
-Api for handling databases
-
-First Connection in "Services" indicating user, pass, ip, then from the connection id used the service is created.
-
-To connect to a db just type the following and have access to servico
-
-```
-    db = kona.db("mydb1"); //db es el acceso de DBServices
-```
-
-### querys
-
-```
-	result = db.query("select * from my_table");
-```
-
-### BackUp DB
-
-```
-	url = db.backup();
-```
-
-### Result
-
-The result is a list of json in kona always jsons we deal with, or to facilitate json arrays for the programmer.
-
-
-```
-function get(){
-    db = kona.db("mydb1");
-    list = db.query("select * from my_table"); //list is a json list
-
-    //example
-    first = list.get(0);
-    name = first.get("name");
-}
-```
-
-
-## Make a backup every 24 hours in 3 lineas of code
-
-How to make in kona a sql backup and run it every 24 hours
-```
-function run(){
-    db = kona.db("mydb1");
-    url = db.backup();
-    kona.email.send("me@konacloud.org","Today backup","the backup is here " + url);
-}
-```
-
-Then go to schedule and select to run every 24 hours this method
-
-#Forms
-
-## Form Controllers
-
-```
-importPackage(org.kona.js);
-
-// call this before the form is builded
-function onBefore() {
-
-    var form = kona.obj();
-    form.put("field0",1);
-
-    list1 = kona.list();
-    for (var i=0;i<99;i++){
-        list1.add("cliente " + i);
-    }
-    form.put("field1",list1);
-
-    list2 = kona.list();
-    for (var i=0;i<99;i++){
-        var obj = kona.obj();
-        obj.put("name","some "+i);
-        obj.put("last name","last "+i);
-        list2.add(obj);
-    }
-
-    form.put("field3",list2);
-
-	return form;
-}
-
-// call this on the form commit (if there is any) with the data posted
-function onCommit(data) {
-	val = data.get("field1");
-	log("getting "+val);
-    if (test_error)
-        kona.obj("some error msg");
-}
-```
-
-
-## Form Controller and Model integration
-
-Example, set up a form with a table, and insert all the values from a model or q query)
-
-Just do it!
-
-// call this before the form is builded
-function onBefore() {
-
-    var form = kona.obj();
-    form.put("text1","Valor por defecto");
-
-    var model = kona.model('person');
-    form.put("table1",model.all());
-
-    form.put("table1.visibleColumns", "name,email");
-    form.put("table1.columnHeaders", "Nombre,Correo");
-
-	return form;
-}
-
-###Properties
-
-form.put("table1.visibleColumns", "name,email");
-
-only this fields are visible in the table
-
-form.put("table1.columnHeaders", "Nombre,Correo");
-
-change the captions of the table
-
-Video
-
-
-#Buckets
-
-A bucket is a place to host static content and serve them fast.
-Each bucket created in KONA has a unique url you can POST and GET files from. Any file you POST will return a JSON object with the success code and GET URL you an use to retrieve it.
-
-![ScreenShot](http://i.imgur.com/OVFxuIr.png)
 
 #Schedule
 
