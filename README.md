@@ -1247,3 +1247,32 @@ HTML tag regular expression
 HTML Links regular expression
 (?i)<a([^>]+)>(.+?)</a>
 \s*(?i)href\s*=\s*(\"([^"]*\")|'[^']*'|([^'">\s]+));
+
+
+#SDK Clients
+
+## Android
+
+```
+	KonaRequest request = new KonaRequest() {
+	{
+		this.url = "http://app.konacloud.io/...";
+		this.method = HTTPMethod.GET;
+		this.accessToken = "5b7...";
+	}
+	
+	@Override
+	public void onSuccess(String jsonObject) {
+		//do something on success
+	}
+	
+	@Override
+	public void onFailure(KonaResponse res) {
+		//do something on failure
+		Toast.makeText(getActivity(), res.getMsg(), Toast.LENGTH_LONG).show();
+	}
+	};
+	request.make();
+```
+
+Download and read the documentation at http://konacloud.github.io/sdk/
