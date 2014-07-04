@@ -12,7 +12,7 @@ KONA custom APIs are coded in the latest JavaScript. These are then executed by 
 Website: http://konacloud.io
 Developer Portal: http://developer.konacloud.io
 
-# Videos
+Videos
 
 Hello work 40 sec Video 
 
@@ -54,6 +54,162 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
 
 Mozilla's JavaScript Reference
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+
+# Getting Started
+
+# Getting Started
+
+## SSN (Simple Social Network)
+
+This can be my first application with KONA.
+
+We will implement a simple social network, with users and posts. 
+
+First of all we will create the User model with attributes userId, email, and password.
+Below we define the validations and finally we see what methods we have to implement.
+ 
+
+Define the Model User with
+
+ - userId (not nulleable, unique)
+ - password (not nulleable)
+ - email userId (not nulleable, unique, regexp)
+
+http://i.imgur.com/rlZBwFfl.png
+
+ 
+Define the constraints.
+
+![ScreenShot](http://i.imgur.com/71QtqF3l.png)
+
+Automaticaly KONA create the API Code mr_user, the mr means Model Resource.
+
+```
+/*
+ * @autor taio
+ */
+var model = kona.model.open('User');
+
+/*
+ * @param req is the http request, req.params.get("")
+ */
+var get = function(req) {
+	var id = req.params.get("id");
+    if (id == null) {
+    	return model.all();
+    } else {
+        return model.queryById(id);
+    }
+};
+
+/*
+ * @param req.body is a instance of User
+ */
+var post = function(req) {
+	model.insert(req.body);
+	return req.body.get("_id");
+};
+
+/*
+ * @param req.body is a instance of User
+ */
+var put = function(req) {
+	model.save(req.body);
+	return kona.obj(true);
+};
+
+/*
+ * @param req.params.get("id") is the id of the instance to delete
+ */
+var del = function(req) {
+	var id = req.params.get("id");
+	model.deleteById(id);
+	return kona.obj(true);
+};
+
+var test = function() {
+	return get();
+};
+
+```
+
+With this we can do the folowings operations
+
+POST JSON
+http://app.konacloud.io/api/taio/SSN/mr_User
+to insert a new user
+
+PUT JSON
+http://app.konacloud.io/api/taio/SSN/mr_User
+to save user data
+
+DELETE
+http://app.konacloud.io/api/taio/SSN/mr_User
+remove a user
+
+GET
+http://app.konacloud.io/api/taio/SSN/mr_User
+get all users
+
+GET
+http://app.konacloud.io/api/taio/SSN/mr_User?id=1231124323
+get the user with id 1231124323
+
+So, we just define our model and KONA did the rest.
+
+Now, we want to have a login option, in the User api (same file) we code the following
+
+```
+
+//we will return these object to the client
+var success = {
+    res:true
+}
+var failure = {
+    res:false
+}
+
+var login = function(req){
+    
+    var userId = req.body.get("userId");
+    var password = req.body.get("password");
+        
+    var q = model.buildQuery();
+    var find = {
+         userId : userId
+    }
+    var list = q.find(find).list();
+    if (list==null || list.size()<1)
+        return failure; //the user dosent exists
+    var user = list.get(0);
+    
+    //check the password
+    var pass1 = user.get("password");
+    if (password!=pass1){
+        return failure;
+    }else{
+        return success; //ok
+    }
+}
+```
+
+and now in API's URL we see the URL for the new method, for example
+
+POST JSON to https://app.konacloud.io/api/taio/SSN/mr_User/login
+
+```
+{
+  userId : "someUserId",
+  password : "password"
+}
+```
+
+Now we define the POST Model, with title, userId, and text
+
+We are done, use some client to test it
+
+![ScreenShot](http://i.imgur.com/RxylX1al.png)
+
 
 
 #Kona APP Architecture
@@ -141,6 +297,9 @@ var abs = function(num){
 		return num*(-1);
 }
 ```
+
+
+
 
 
 Code Samples
