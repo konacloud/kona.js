@@ -1500,6 +1500,23 @@ Take a photo with the camera and send to a KONA backet storage.
 	KonaBucket.getInstance().loadImage("http://host",imageView);
 ```
 
+
+### Example Cooker App
+
+- Post File to a bucket using the KONA Android SDK
+
+- Post a model
+
+- Get model and images from buckets
+
+video https://www.youtube.com/watch?v=6Whhe71fyus
+
+code https://github.com/konacloud/samples/tree/master/android-cookerapp
+
+
+![ScreenShot](http://cdn.makeagif.com/media/7-03-2014/yMnWio.gif)
+
+
 # JS (Jquery)
 
 We recommend to use jquery.
@@ -1614,9 +1631,7 @@ We recommend to use this Jquery plugin
 
 https://github.com/blueimp/jQuery-File-Upload
 
-See the gif example
-
-http://postimg.org/image/xwryild7v/
+![ScreenShot](http://s17.postimg.org/ud60ssai5/KONA_JQuery_file_upload.gif)
 
 ### Simple usage
 
