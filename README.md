@@ -1722,7 +1722,7 @@ $(function () {
 ```
 
 
-## Xamarin
+# Xamarin (Android & IOS)
 
 Getting a list
 
