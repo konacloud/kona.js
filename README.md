@@ -33,14 +33,15 @@ http://www.youtube.com/watch?v=YnOMuFf7q0E&feature=youtu.be
 Kona GeoCode Example
 http://www.youtube.com/watch?v=wAtOfGyngiY&feature=youtu.be
 
+#Introduction
 
-# KonaCloud.IO SDK Reference
+KonaCloud.IO SDK Reference
 
 On top of the execution runtine, we created a powerful KonaCloud.IO SDK that helps developers code faster and with less errors with ready-to-use libraries that provide a lot of functionality right outside the box, such as push notifcations for iOS and Android, email sending, sms sending, calling external web services and connecting to SQL-based databases with ease.
 
 We strive to create very simple and efficient helper functions so you don't have to reinvent the wheel. We are adding more functions every day to the SDK.
 
-# JavaScript
+JavaScript
 
 We love JavaScript and all of KonaCloud.IO is based on JavaScript libraries and functions.
 
