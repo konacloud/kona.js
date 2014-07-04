@@ -203,7 +203,7 @@ We are done, use some client to test it
 
 
 
-#Kona APP Architecture
+## Kona APP Architecture
 
 ![ScreenShot](http://i.imgur.com/bS6AJu3.png)
 
@@ -211,7 +211,7 @@ We are done, use some client to test it
 Templates and Examples
 ===============
 
-## Model Resources
+### Model Resources
 
 ```
 /*
@@ -256,7 +256,7 @@ var test = function() {
 };
 ```
 
-## Custom Resource
+### Custom Resource
 
 ```
 var model = kona.model.open('{modelId}');
@@ -268,7 +268,7 @@ var get = function(req) {
 };
 
 ```
-## JOB
+### JOB
 
 ```
 
@@ -277,7 +277,7 @@ var run = function(){
 }
 ```
 
-## Library
+### Library
 
 ```
 
