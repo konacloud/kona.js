@@ -57,7 +57,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 
 # Getting Started
 
-# Getting Started
+3 minutes tutorial for the first backend
 
 ## SSN (Simple Social Network)
 
