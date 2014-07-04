@@ -1722,3 +1722,30 @@ $(function () {
 ```
 
 
+## Xamarin
+
+Getting a list
+
+```
+public static IEnumerable<Task> GetTasks ()
+		{
+
+			var request = WebRequest.Create(url);
+			request.ContentType = "application/json";
+			request.Method = "GET";
+			request.Headers.Add ("X-AUTH-TOKEN", auth_token);
+
+			using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+			{
+				if (response.StatusCode != HttpStatusCode.OK) {
+					Console.Out.WriteLine ("Error fetching data. Server returned status code: {0}", response.StatusCode);
+				}
+
+				var stream = response.GetResponseStream ();
+				DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(KCRequest<List<Task>>));
+				KCRequest<List<Task>> tasks = (KCRequest<List<Task>>)ser.ReadObject(stream);
+				return tasks.data;
+			}
+		}
+
+```
