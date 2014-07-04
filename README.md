@@ -66,9 +66,9 @@ Define the Model User with
  - password (not nulleable)
  - email userId (not nulleable, unique, regexp)
 
-http://i.imgur.com/rlZBwFfl.png
+![ScreenShot](http://i.imgur.com/rlZBwFfl.png)
 
- 
+
 Define the constraints.
 
 ![ScreenShot](http://i.imgur.com/71QtqF3l.png)
