@@ -14,28 +14,12 @@ Developer Portal: http://developer.konacloud.io
 
 Videos
 
-Hello work 40 sec Video 
+Hello word 40 sec Video 
 
 https://www.youtube.com/watch?v=vTJpU-TGKMU
 
-Kona first Video 30 minutes duration
 
-http://vimeo.com/82645251
-
-Kona-Facebook Demo Video (Deprecated)
-http://www.youtube.com/watch?v=_tJVz3I9uts&feature=youtu.be
-http://www.youtube.com/watch?v=QMZbURzh1eE
-
-
-Kona-SMS Video
-http://www.youtube.com/watch?v=YnOMuFf7q0E&feature=youtu.be
-
-Kona GeoCode Example
-http://www.youtube.com/watch?v=wAtOfGyngiY&feature=youtu.be
-
-#Introduction
-
-KonaCloud.IO SDK Reference
+SDK Reference
 
 On top of the execution runtine, we created a powerful KonaCloud.IO SDK that helps developers code faster and with less errors with ready-to-use libraries that provide a lot of functionality right outside the box, such as push notifcations for iOS and Android, email sending, sms sending, calling external web services and connecting to SQL-based databases with ease.
 
@@ -55,6 +39,15 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
 
 Mozilla's JavaScript Reference
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+
+
+Kona first Video 30 minutes duration
+http://vimeo.com/82645251
+
+Kona-SMS Video
+http://www.youtube.com/watch?v=YnOMuFf7q0E&feature=youtu.be
+Kona GeoCode Example
+http://www.youtube.com/watch?v=wAtOfGyngiY&feature=youtu.be
 
 # Getting Started
 
