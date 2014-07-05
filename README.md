@@ -22,6 +22,8 @@ Developer Portal: http://developer.konacloud.io
 ![ScreenShot](http://bucket.konacloud.io/external/api/bucket/taio/hello/b1/kf-a013e535-c975-4ff4-ba50-35485f50e0dd)
 
 
+Hello Word
+<iframe width="560" height="315" src="//www.youtube.com/embed/vTJpU-TGKMU" frameborder="0" allowfullscreen></iframe>
 
 SDK Reference
 
@@ -48,10 +50,6 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 Kona first Video 30 minutes duration
 http://vimeo.com/82645251
 
-Kona-SMS Video
-http://www.youtube.com/watch?v=YnOMuFf7q0E&feature=youtu.be
-Kona GeoCode Example
-http://www.youtube.com/watch?v=wAtOfGyngiY&feature=youtu.be
 
 # Getting Started
 
@@ -1008,8 +1006,7 @@ kona.email.send('email@server.com','Subject','Content');
 ```
 
 Demo Video
-http://www.youtube.com/watch?v=4TACroSs-rA&feature=youtu.be
-
+<iframe width="560" height="315" src="//www.youtube.com/embed/YnOMuFf7q0E" frameborder="0" allowfullscreen></iframe>
 
 # SERVICES
 
@@ -1150,8 +1147,7 @@ result
 
 Demo Video
 
-http://www.youtube.com/watch?v=wAtOfGyngiY&feature=youtu.be
-
+<iframe width="560" height="315" src="//www.youtube.com/embed/wAtOfGyngiY" frameborder="0" allowfullscreen></iframe>
 
 # Utils
 
@@ -1165,8 +1161,7 @@ http://www.youtube.com/watch?v=wAtOfGyngiY&feature=youtu.be
 
 Demo video:
 
-http://www.youtube.com/watch?v=0LZ8L3sntfI&feature=youtu.be
-
+<iframe width="420" height="315" src="//www.youtube.com/embed/0LZ8L3sntfI" frameborder="0" allowfullscreen></iframe>
 
 ## Net Util Service
 
@@ -1659,6 +1654,11 @@ Take a photo with the camera and send to a KONA backet storage.
 
 ### Example Cooker App
 
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/6Whhe71fyus" frameborder="0" allowfullscreen></iframe>
+
+Its open :) Download and start playing with the SDK
+
 - Post File to a bucket using the KONA Android SDK
 
 - Post a model
@@ -1905,3 +1905,9 @@ public static IEnumerable<Task> GetTasks ()
 		}
 
 ```
+
+
+# Monitoring
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/B8Ebh38R4BI" frameborder="0" allowfullscreen></iframe>
+
