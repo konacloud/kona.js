@@ -6,6 +6,8 @@ Welcome to KonaCloud.io
 
 Video
 
+<iframe class="wistia_embed" name="wistia_embed" src="http://fast.wistia.net/embed/iframe/05j0ghik3j" allowtransparency="true" frameborder="0" scrolling="no" width="480" height="298"></iframe>
+
 http://fast.wistia.net/embed/iframe/05j0ghik3j
 
 KonaCloud.io is for developers by developers. A platform to run all your back-ends, APIs and bussiness logic. Runs JavaScript on the server-side so you don't have to learn a new language.
