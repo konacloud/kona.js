@@ -19,11 +19,10 @@ KONA custom APIs are coded in the latest JavaScript. These are then executed by 
 Website: http://konacloud.io
 Developer Portal: http://developer.konacloud.io
 
+Hello Word
+
 ![ScreenShot](http://bucket.konacloud.io/external/api/bucket/taio/hello/b1/kf-a013e535-c975-4ff4-ba50-35485f50e0dd)
 
-
-Hello Word
-<iframe width="560" height="315" src="//www.youtube.com/embed/vTJpU-TGKMU" frameborder="0" allowfullscreen></iframe>
 
 SDK Reference
 
