@@ -4,9 +4,9 @@ KonaCloud.io
 Welcome to KonaCloud.io
 
 
-Video
+1 minute blog bakcend
 
-<iframe class="wistia_embed" name="wistia_embed" src="http://fast.wistia.net/embed/iframe/05j0ghik3j" allowtransparency="true" frameborder="0" scrolling="no" width="480" height="298"></iframe>
+<iframe class="wistia_embed" name="wistia_embed" src="http://fast.wistia.net/embed/iframe/05j0ghik3j" allowtransparency="true" frameborder="0" scrolling="no" width="580" height="398"></iframe>
 
 http://fast.wistia.net/embed/iframe/05j0ghik3j
 
