@@ -201,7 +201,6 @@ We are done, use some client to test it
 
 ![ScreenShot](http://i.imgur.com/RxylX1al.png)
 
-<iframe class="wistia_embed" name="wistia_embed" src="http://fast.wistia.net/embed/iframe/05j0ghik3j" allowtransparency="true" frameborder="0" scrolling="no" width="480" height="298"></iframe>
 
 ## Kona APP Architecture
 
