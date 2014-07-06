@@ -349,8 +349,6 @@ var test = function() {
 
 ```
 
-## Object (Simple Java Object KonaDO)
-
 You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
 usually an object of type KonaDO compliant json format with other properties.
 
