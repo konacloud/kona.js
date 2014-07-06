@@ -302,13 +302,6 @@ var abs = function(num){
 }
 ```
 
-
-
-
-
-Code Samples
-===============
-
 # Basic Uses
 
 ## Object JS Mode
