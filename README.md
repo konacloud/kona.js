@@ -21,7 +21,7 @@ Developer Portal: http://developer.konacloud.io
 ## Demo Ticket Backend
 <iframe src="//fast.wistia.net/embed/iframe/r55v2ub1ma" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="399"></iframe>
 
-## Demo Simple Blog Backend
+## Demo Blog Backend
 
 <iframe class="wistia_embed" name="wistia_embed" src="http://fast.wistia.net/embed/iframe/05j0ghik3j" allowtransparency="true" frameborder="0" scrolling="no" width="640" height="399"></iframe>
 
@@ -407,22 +407,7 @@ Ademas se pueden hacer cosas como
 
 Consideramos una buena practica que todos los metodos tengan su test, auque deben tener cuidado de no insertar datos en cada test (queda a criterio del desarrollador)
 
-## Object (Simple Java Object KonaDO)
 
-You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
-usually an object of type KonaDO compliant json format with other properties.
-
-The following are valid
-
-```
-var obj = kona.obj();
-```
-## List
-
-```
-var obj = new ArrayList<KonaDO>(); //o
-var obj = kona.list();
-```
 
 ## Request Structure
 
@@ -432,6 +417,14 @@ Cada request a un resource viene con la siguiente estructura, por ejemplo
 req.header.get("some_header")
 req.params.get("some_param")
 req.body.get("field");
+
+req.method //is the method
+
+req.isPost();
+req.isGet();
+req.isPut();
+req.isDelete();
+
 ```
 
 ### Ejemplo de obtencion de un headers
@@ -480,6 +473,22 @@ var test = function(){
 };
 ```
 
+## Object (Simple Java Object KonaDO)
+
+You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
+usually an object of type KonaDO compliant json format with other properties.
+
+The following are valid
+
+```
+var obj = kona.obj();
+```
+## List
+
+```
+var obj = new ArrayList<KonaDO>(); //o
+var obj = kona.list();
+```
 
 # STORAGE
 
@@ -1032,7 +1041,7 @@ REST (json)
 ```
 function f(){
 	var obj = kona.obj();
-	var api = kona.api.get();
+	var api = kona.net.get();
 	var r = api.call("http://api.openweathermap.org/data/2.1/weather/city/3441575?units=metric");
 	obj.put('temperatura',r.get("main").get("temp"));
 	return obj;
@@ -1049,7 +1058,7 @@ temperatura: 19.25
 ### Metodo Get
 
 ```
-var api = kona.api().get();
+var api = kona.net().get();
 }
 ```
 
@@ -1059,7 +1068,7 @@ var api = kona.api().get();
 var data = kona.obj();
 data.put("hola",123);
 
-var api = kona.api.post(data);
+var api = kona.net.post(data);
 var r = api.call("http://postexample.com");
 
 ```
@@ -1070,7 +1079,7 @@ var r = api.call("http://postexample.com");
 var data = kona.obj();
 data.put("put",12);
 
-var api = kona.api.put(data);
+var api = kona.net.put(data);
 var r = api.call("http://putexample.com");
 
 ```
