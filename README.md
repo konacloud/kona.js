@@ -309,12 +309,11 @@ var abs = function(num){
 Code Samples
 ===============
 
-# BasicServices
+# Basic Uses
 
 ## Object JS Mode
 
 You can create and use JS Object and them pass they to the kona methods
-
 
 ```
 
@@ -357,7 +356,22 @@ var test = function() {
 
 ```
 
-#Basic Uses
+## Object (Simple Java Object KonaDO)
+
+You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
+usually an object of type KonaDO compliant json format with other properties.
+
+The following are valid
+
+```
+var obj = kona.obj();
+```
+## List
+
+```
+var obj = new ArrayList<KonaDO>(); //o
+var obj = kona.list();
+```
 
 ##How to Log
 
@@ -471,23 +485,6 @@ include("timeUtil");
 var test = function(){
     return timeUtil.util();
 };
-```
-
-## Object (Simple Java Object KonaDO)
-
-You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
-usually an object of type KonaDO compliant json format with other properties.
-
-The following are valid
-
-```
-var obj = kona.obj();
-```
-## List
-
-```
-var obj = new ArrayList<KonaDO>(); //o
-var obj = kona.list();
 ```
 
 # STORAGE
