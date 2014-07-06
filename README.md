@@ -16,7 +16,7 @@ Website: http://konacloud.io
 Developer Portal: http://developer.konacloud.io
 
 
-# Demo
+#Demos
 
 ## Demo Ticket Backend
 <iframe src="//fast.wistia.net/embed/iframe/r55v2ub1ma" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="399"></iframe>
