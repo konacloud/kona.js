@@ -4,11 +4,13 @@ KonaCloud.io
 Welcome to KonaCloud.io
 
 
-1 minute blog bakcend
+## Demo Simple Blog Backend
 
 <iframe class="wistia_embed" name="wistia_embed" src="http://fast.wistia.net/embed/iframe/05j0ghik3j" allowtransparency="true" frameborder="0" scrolling="no" width="580" height="398"></iframe>
 
-http://fast.wistia.net/embed/iframe/05j0ghik3j
+
+## Demo Ticket Backend
+<iframe src="//fast.wistia.net/embed/iframe/r55v2ub1ma" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="399"></iframe>
 
 KonaCloud.io is for developers by developers. A platform to run all your back-ends, APIs and bussiness logic. Runs JavaScript on the server-side so you don't have to learn a new language.
 
@@ -19,9 +21,14 @@ KONA custom APIs are coded in the latest JavaScript. These are then executed by 
 Website: http://konacloud.io
 Developer Portal: http://developer.konacloud.io
 
-Hello Word
+## Hello Word
 
-![ScreenShot](http://bucket.konacloud.io/external/api/bucket/taio/hello/b1/kf-a013e535-c975-4ff4-ba50-35485f50e0dd)
+Hello word without models, buckets or nothing.
+
+40 seconds.
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/vTJpU-TGKMU" frameborder="0" allowfullscreen></iframe>
+
 
 
 SDK Reference
