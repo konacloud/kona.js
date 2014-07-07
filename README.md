@@ -1883,7 +1883,32 @@ $(function () {
 
 ```
 
+# PhoneGap
 
+## POST File to a bucket with PhoneGap
+
+```
+
+function uploadPhoto(imageURI) {
+            var options = new FileUploadOptions();
+            options.fileKey="file";
+            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
+
+          
+            var ft = new FileTransfer();
+            ft.upload(imageURI, "http://app.konacloud.io/external/api/user/app/bucketName", win, fail, options);
+        }
+
+        function win(r) {
+            
+            var str = r.response;
+            var obj = JSON.parse(str);
+            var url = obj.data[0].url;
+            
+            alert("the file is in " + url);
+        }
+```
 # Xamarin (Android & IOS)
 
 Getting a list
