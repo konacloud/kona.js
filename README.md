@@ -1017,7 +1017,57 @@ Demo Video
 # SERVICES
 
 
-## Api Services
+## Rest Client v2
+
+
+How to Call a Rest Service
+
+## GET Example
+
+```
+var test = function(){
+    var request = {
+        url : "http://app.konacloud.io/api/taio/sample1/mr_model1",
+        method : "get",
+        as : "json"
+    }
+    
+    var data = kona.net.send(request);
+    
+    if (data.code == 200)
+        return JSON.parse(data.response);
+    kona.error("http error " + data.code)
+};
+```
+
+## POST Example
+
+```
+var test = function(){
+    
+    var data = {
+        name : "My Name is Ear"
+    }
+    
+    var request = {
+        url : "http://app.konacloud.io/api/taio/hello/mr_Person",
+        method : "post",
+        data : data
+    }
+    
+    var data = kona.net.send(request);
+    
+    if (data.code == 200)
+        return JSON.parse(data.response);
+        
+    kona.error("http error " + data.code)
+};
+```
+
+For PUT and Delete methods is the same way.
+
+
+## Rest Client v1 (old way)
 
 Api to communicate by rest to other services on the web.
 
