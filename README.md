@@ -12,8 +12,8 @@ KONA is a Backend-as-a-Service platform which allows you to create data models, 
 
 KONA custom APIs are coded in the latest JavaScript. These are then executed by the all-new, super-fast  and powerful Nashorn JavaScript engine from Oracle's JVM 8.
 
-Website: http://konacloud.io
-Developer Portal: http://developer.konacloud.io
+- Website: http://konacloud.io
+- Developer Portal: http://developer.konacloud.io
 
 
 ## Demo Blog Backend
