@@ -16,22 +16,9 @@ Website: http://konacloud.io
 Developer Portal: http://developer.konacloud.io
 
 
-#Demos
-
-## Demo Ticket Backend
-<iframe src="//fast.wistia.net/embed/iframe/r55v2ub1ma" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="399"></iframe>
-
 ## Demo Blog Backend
 
 <iframe class="wistia_embed" name="wistia_embed" src="http://fast.wistia.net/embed/iframe/05j0ghik3j" allowtransparency="true" frameborder="0" scrolling="no" width="640" height="399"></iframe>
-
-## Hello Word
-
-Hello word without models, buckets or nothing.
-
-40 seconds.
-
-<iframe width="560" height="315" src="//www.youtube.com/embed/vTJpU-TGKMU" frameborder="0" allowfullscreen></iframe>
 
 
 SDK Reference
@@ -304,6 +291,13 @@ var abs = function(num){
 
 # Basic Uses
 
+## Hello Word Demo
+
+Hello word without models, buckets or nothing.
+40 seconds.
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/vTJpU-TGKMU" frameborder="0" allowfullscreen></iframe>
+
 ## Object JS Mode
 
 You can create and use JS Object and them pass they to the kona methods
@@ -479,6 +473,9 @@ var test = function(){
 ```
 
 # STORAGE
+
+## Demo Ticket Backend
+<iframe src="//fast.wistia.net/embed/iframe/r55v2ub1ma" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="399"></iframe>
 
 The KONA default persistence is through the Model Service. 
 
