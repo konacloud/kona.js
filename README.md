@@ -1022,7 +1022,7 @@ Demo Video
 
 How to Call a Rest Service
 
-## GET Example
+### GET Example
 
 ```
 var test = function(){
@@ -1040,7 +1040,7 @@ var test = function(){
 };
 ```
 
-## POST Example
+### POST Example
 
 ```
 var test = function(){
@@ -1065,6 +1065,13 @@ var test = function(){
 ```
 
 For PUT and Delete methods is the same way.
+
+
+If you want the result as a String Stream just add the as parameter
+
+```
+	as : "string"
+```
 
 
 ## Rest Client v1 (old way)
