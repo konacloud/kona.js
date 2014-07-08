@@ -3,9 +3,6 @@ KonaCloud.io
 
 Welcome to KonaCloud.io
 
-
-
-
 KonaCloud.io is for developers by developers. A platform to run all your back-ends, APIs and bussiness logic. Runs JavaScript on the server-side so you don't have to learn a new language.
 
 KONA is a Backend-as-a-Service platform which allows you to create data models, code custom APIs, create and use object storage buckets and reporting for your data.
@@ -20,6 +17,10 @@ KONA custom APIs are coded in the latest JavaScript. These are then executed by 
 
 <iframe class="wistia_embed" name="wistia_embed" src="http://fast.wistia.net/embed/iframe/05j0ghik3j" allowtransparency="true" frameborder="0" scrolling="no" width="640" height="399"></iframe>
 
+
+## Getting Started
+
+Go to getting started http://konacloud.io/doc/getting-started.html
 
 SDK Reference
 
@@ -42,9 +43,6 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
 Mozilla's JavaScript Reference
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 
-
-Kona first Video 30 minutes duration
-http://vimeo.com/82645251
 
 
 # Getting Started Demos
@@ -2017,3 +2015,8 @@ public static IEnumerable<Task> GetTasks ()
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/B8Ebh38R4BI" frameborder="0" allowfullscreen></iframe>
 
+# Anexo
+
+
+Kona first Video 30 minutes duration
+http://vimeo.com/82645251
