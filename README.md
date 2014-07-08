@@ -1317,6 +1317,39 @@ function get(){
 }
 ```
 
+
+# Buckets
+
+When you create a bucket, only need to post data to the bucket URL
+
+## Receive files in a bucket
+
+All files are cached in the browser forever since a url is unique per file. 
+
+### Resize
+
+To resize the image can be sent the following parameters 
+
+s: 
+
+with the parameter s image is of size s (width and height) 
+
+example 
+
+http://url-to-image/filename?s=128 
+
+This returns us an image of 128x128 
+
+w and h: 
+
+also can send the height and width separately 
+
+http://url-to-image/filename?w=128&h=200 
+
+This returns us an image of 128x200
+
+
+
 #Schedule
 
 Como ejecutar un cron job en Kona.
