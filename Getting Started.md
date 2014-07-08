@@ -14,7 +14,7 @@ The KONA Cloud helps you code, build and run your app cloud services in a robust
 
 Before KONA, when you needed to create these services, you usually had to choose from a range of technologies; hosting providers, services monitoring tools, remote backup solutions and sysadmin staff to keep all these running and updated.
 
-A common way of doing back-ends involved: a Linux Server, a PHP-based web app, MySQL database - all this running on a VPS or Shared Hosting. In the best cases, under an elastic instance like Amazon EC2.
+A common way of doing back-ends involved: a Linux Server, a PHP-based web app, MySQL database - all this running on a VPS or Shared Hosting. In the best cases, under a virtual elastic instance.
 
 KONA took this know-how, and created a development environment and runtime platform that takes away all the hassle of building and running a back-end in the cloud so you can focus on what matters most: your business.
 
@@ -26,7 +26,7 @@ Now you can create your backend in minutes. Run them forever.
 
 #Building your first app
 
-A very common mobile app back-end usually involved this steps (not in a particular order):
+A very common mobile app back-end usually involves these steps:
 
 1. Define what data are you going to store (design your data models)
 2. Code your APIs which will be called from your app
