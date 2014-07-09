@@ -714,7 +714,7 @@ SELECT * FROM Person WHERE age > 25 and age<=50;
 
 find = { age: { $gt: 25, $lte: 50 }
 
-### Like in Queries
+### Like in Queries RegEX
 
 We can use RegExp or if the only thing tha we need is the like we can do this.
 
@@ -722,9 +722,29 @@ SELECT * FROM Person WHERE name like "%Bart%";
 
 ```
 var find = {
-	name : "/ar/"
+	name : {
+		$regex : ".*some.*"
+	}
 }
 var person = q.find(find).list();
+```
+
+
+### Using or and regex
+
+```
+var search = function(req) {
+    var text = req.params.get("text");
+    
+    var exp = {
+	        $regex : ".*"+text+".*"
+    }
+    
+    var find = { $or: [{ Name: exp},{LastName:exp}] };
+    var q = model.buildQuery();
+    
+    return q.find(find).list();
+}
 ```
 
 ### Sorting
