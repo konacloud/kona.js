@@ -587,6 +587,13 @@ To delete an object is necessary to know its id.
 mc.deleteById("51243na314aae34");
 ```
 
+### delete all objects in a collection
+```
+model.all().forEach(function(i) {
+     model.deleteById(i._id);
+});
+```
+   
 ### find And Delete
 Same as before, if we want to delete all the Persons who has the name eq "Bar"
 
