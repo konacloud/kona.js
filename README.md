@@ -13,32 +13,6 @@ KONA custom APIs are coded in the latest JavaScript. These are then executed by 
 
 Go to getting started http://konacloud.io/doc/getting-started.html
 
-SDK Reference
-
-On top of the execution runtine, we created a powerful KonaCloud.IO SDK that helps developers code faster and with less errors with ready-to-use libraries that provide a lot of functionality right outside the box, such as push notifcations for iOS and Android, email sending, sms sending, calling external web services and connecting to SQL-based databases with ease.
-
-We strive to create very simple and efficient helper functions so you don't have to reinvent the wheel. We are adding more functions every day to the SDK.
-
-JavaScript
-
-We love JavaScript and all of KonaCloud.IO is based on JavaScript libraries and functions.
-
-Here are useful links to JavaScript reference and user guides that will help you be more efficient and productive.
-
-A re-introduction to JavaScript (JS Tutorial)
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
-
-Mozilla's JavaScript Guide
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
-
-Mozilla's JavaScript Reference
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
-
-
-
-# Getting Started Demos
-
-3 minutes tutorial for the first backend
 
 ## SSN (Simple Social Network)
 
@@ -2117,3 +2091,31 @@ public static IEnumerable<Task> GetTasks ()
 
 Kona first Video 30 minutes duration
 http://vimeo.com/82645251
+
+
+SDK Reference
+
+On top of the execution runtine, we created a powerful KonaCloud.IO SDK that helps developers code faster and with less errors with ready-to-use libraries that provide a lot of functionality right outside the box, such as push notifcations for iOS and Android, email sending, sms sending, calling external web services and connecting to SQL-based databases with ease.
+
+We strive to create very simple and efficient helper functions so you don't have to reinvent the wheel. We are adding more functions every day to the SDK.
+
+JavaScript
+
+We love JavaScript and all of KonaCloud.IO is based on JavaScript libraries and functions.
+
+Here are useful links to JavaScript reference and user guides that will help you be more efficient and productive.
+
+A re-introduction to JavaScript (JS Tutorial)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
+
+Mozilla's JavaScript Guide
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
+
+Mozilla's JavaScript Reference
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+
+
+
+# Getting Started Demos
+
+3 minutes tutorial for the first backend
