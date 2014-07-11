@@ -1495,7 +1495,7 @@ var test = function(){
 
 Finaly you can see the logs on your dashboard
 
-![ScreenShot](http://i.imgur.com/wzzUUmh.png)
+![ScreenShot](http://i.imgur.com/wzzUUmhl.png)
 
 
 
