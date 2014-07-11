@@ -1455,6 +1455,50 @@ Finaly add ha test case for your method in the apropiate package.
 
 
 
+
+
+# External Services
+
+## Loggin in the cloud
+
+### loggly
+
+![ScreenShot](http://blog.sparklehouse.com/wp-content/uploads/2011/07/cc28b733b8y-logo.jpg.jpg)
+
+
+
+Only need the endpoint url.
+
+```
+var test = function(){
+    //data to log
+    var data = {
+        userAgent : "android",
+        date : new Date(),
+    }
+    
+    //endpoint provided by loggly
+    var conf = {
+        url : "http://logs-01.loggly.com/inputs/3d2fd5d1-39a8-4a1d-8e49-5ce65d918092/tag/http/"
+    }
+
+    //open the connection
+    var l = kona.loggly.open(conf);
+    
+    //send the log
+    l.log(data);
+    
+    return happy;
+};
+
+```
+
+Finaly you can see the logs on your dashboard
+
+![ScreenShot](http://i.imgur.com/wzzUUmh.png)
+
+
+
 # Model View
 
 ## Model Validations
