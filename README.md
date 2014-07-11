@@ -1453,15 +1453,17 @@ add all the methods in the interface and implement them in the ServiceImpl.
 
 Finaly add ha test case for your method in the apropiate package.
 
-
-
-
-
 # External Services
 
 ## Loggin in the cloud
 
 ### loggly
+
+Simplify Log Management
+With a simple setup process and easy-to-use tools, Loggly takes the hassle out of log management. Our cloud-based solution makes instant sense of tons of log data coming from applications, platforms, and systems.
+
+more info at https://www.loggly.com
+
 
 ![ScreenShot](http://blog.sparklehouse.com/wp-content/uploads/2011/07/cc28b733b8y-logo.jpg.jpg)
 
