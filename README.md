@@ -456,6 +456,29 @@ var test = function(){
 };
 ```
 
+# Safe methods
+
+## To JavaScript
+
+If some result you cant use in js mode, report and do this
+
+```
+obj = kona.somepackage.somefunction();
+var safeJSObject = toJS(obj);
+```
+
+## To Kona Object (Java)
+
+If one object Kona cant parse, report and do this
+
+```
+obj = {
+	...
+}
+var safeKO = toJson(obj);
+result = kona.somepackage.somefunction(safeKO);
+```
+
 # STORAGE
 
 ## Demo Ticket Backend
@@ -679,6 +702,13 @@ SELECT * FROM Person WHERE age > 25 and age<=50;
 
 find = { age: { $gt: 25, $lte: 50 }
 
+#### Using the ID
+
+to compare by id do this
+
+```
+var _id = kona.mongo.objectId("");
+```
 ### Like in Queries RegEX
 
 We can use RegExp or if the only thing tha we need is the like we can do this.
