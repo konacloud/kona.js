@@ -563,8 +563,20 @@ var person {
 }
 mc.findAndUpdate(barto, person);
 ```
-
 Then all the elements with name Bart wil hace the lastName eq Simpson
+
+#### Add to list (Push)
+
+For example if you have a list of friends per user and you want to add a friend to this list.
+
+Our user model has an array of user ids.
+
+```
+var modelUsers = kona.model.open('User');
+var q = { _id: toUserId };
+var u = { $push: { friends: fromUserId } };
+modelUsers.findAndUpdate( q,  u);
+```
 
 ### Delete a Object
 
