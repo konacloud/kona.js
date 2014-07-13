@@ -13,6 +13,9 @@ KONA custom APIs are coded in the latest JavaScript. These are then executed by 
 
 Go to getting started http://konacloud.io/doc/getting-started.html
 
+## Command Line Tool (KONA Cli)
+
+Go to http://konacloud.github.io/KONACli/
 
 ## SSN (Simple Social Network)
 
