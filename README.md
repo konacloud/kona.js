@@ -1,68 +1,18 @@
 KonaCloud.io
 ============
-
 Welcome to KonaCloud.io
 
-
-
-
 KonaCloud.io is for developers by developers. A platform to run all your back-ends, APIs and bussiness logic. Runs JavaScript on the server-side so you don't have to learn a new language.
-
 KONA is a Backend-as-a-Service platform which allows you to create data models, code custom APIs, create and use object storage buckets and reporting for your data.
-
 KONA custom APIs are coded in the latest JavaScript. These are then executed by the all-new, super-fast  and powerful Nashorn JavaScript engine from Oracle's JVM 8.
 
-Website: http://konacloud.io
-Developer Portal: http://developer.konacloud.io
+- Website: http://konacloud.io
+- Developer Portal: http://developer.konacloud.io
 
+## Getting Started
 
-#Demos
+Go to getting started http://konacloud.io/doc/getting-started.html
 
-## Demo Ticket Backend
-<iframe src="//fast.wistia.net/embed/iframe/r55v2ub1ma" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="399"></iframe>
-
-## Demo Blog Backend
-
-<iframe class="wistia_embed" name="wistia_embed" src="http://fast.wistia.net/embed/iframe/05j0ghik3j" allowtransparency="true" frameborder="0" scrolling="no" width="640" height="399"></iframe>
-
-## Hello Word
-
-Hello word without models, buckets or nothing.
-
-40 seconds.
-
-<iframe width="560" height="315" src="//www.youtube.com/embed/vTJpU-TGKMU" frameborder="0" allowfullscreen></iframe>
-
-
-SDK Reference
-
-On top of the execution runtine, we created a powerful KonaCloud.IO SDK that helps developers code faster and with less errors with ready-to-use libraries that provide a lot of functionality right outside the box, such as push notifcations for iOS and Android, email sending, sms sending, calling external web services and connecting to SQL-based databases with ease.
-
-We strive to create very simple and efficient helper functions so you don't have to reinvent the wheel. We are adding more functions every day to the SDK.
-
-JavaScript
-
-We love JavaScript and all of KonaCloud.IO is based on JavaScript libraries and functions.
-
-Here are useful links to JavaScript reference and user guides that will help you be more efficient and productive.
-
-A re-introduction to JavaScript (JS Tutorial)
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
-
-Mozilla's JavaScript Guide
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
-
-Mozilla's JavaScript Reference
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
-
-
-Kona first Video 30 minutes duration
-http://vimeo.com/82645251
-
-
-# Getting Started
-
-3 minutes tutorial for the first backend
 
 ## SSN (Simple Social Network)
 
@@ -304,6 +254,13 @@ var abs = function(num){
 
 # Basic Uses
 
+## Hello Word Demo
+
+Hello word without models, buckets or nothing.
+40 seconds.
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/vTJpU-TGKMU" frameborder="0" allowfullscreen></iframe>
+
 ## Object JS Mode
 
 You can create and use JS Object and them pass they to the kona methods
@@ -364,6 +321,27 @@ var obj = new ArrayList<KonaDO>(); //o
 var obj = kona.list();
 ```
 
+## Dates
+
+Managin dates in KONA
+
+We recomend to use the ISO standar for dates, for example
+
+```
+{ "fecha" : "2014-07-08T03:30:28.650Z"}
+```
+
+```
+var test = function(){
+   
+   var obj = kona.obj();
+   
+   var now = new Date();
+   obj.put("now in iso", now.toJSON());
+   
+   return obj;
+};
+```
 ##How to Log
 
 Yo can log all kond of stuff, for example
@@ -478,7 +456,33 @@ var test = function(){
 };
 ```
 
+# Safe methods
+
+## To JavaScript
+
+If some result you cant use in js mode, report and do this
+
+```
+obj = kona.somepackage.somefunction();
+var safeJSObject = toJS(obj);
+```
+
+## To Kona Object (Java)
+
+If one object Kona cant parse, report and do this
+
+```
+obj = {
+	...
+}
+var safeKO = toJson(obj);
+result = kona.somepackage.somefunction(safeKO);
+```
+
 # STORAGE
+
+## Demo Ticket Backend
+<iframe src="//fast.wistia.net/embed/iframe/r55v2ub1ma" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="399"></iframe>
 
 The KONA default persistence is through the Model Service. 
 
@@ -559,8 +563,20 @@ var person {
 }
 mc.findAndUpdate(barto, person);
 ```
-
 Then all the elements with name Bart wil hace the lastName eq Simpson
+
+#### Add to list (Push)
+
+For example if you have a list of friends per user and you want to add a friend to this list.
+
+Our user model has an array of user ids.
+
+```
+var modelUsers = kona.model.open('User');
+var q = { _id: toUserId };
+var u = { $push: { friends: fromUserId } };
+modelUsers.findAndUpdate( q,  u);
+```
 
 ### Delete a Object
 
@@ -571,6 +587,13 @@ To delete an object is necessary to know its id.
 mc.deleteById("51243na314aae34");
 ```
 
+### delete all objects in a collection
+```
+model.all().forEach(function(i) {
+     model.deleteById(i._id);
+});
+```
+   
 ### find And Delete
 Same as before, if we want to delete all the Persons who has the name eq "Bar"
 
@@ -691,7 +714,14 @@ SELECT * FROM Person WHERE age > 25 and age<=50;
 
 find = { age: { $gt: 25, $lte: 50 }
 
-### Like in Queries
+#### Using the ID
+
+to compare by id do this
+
+```
+var _id = kona.mongo.objectId("");
+```
+### Like in Queries RegEX
 
 We can use RegExp or if the only thing tha we need is the like we can do this.
 
@@ -699,9 +729,29 @@ SELECT * FROM Person WHERE name like "%Bart%";
 
 ```
 var find = {
-	name : "/ar/"
+	name : {
+		$regex : ".*some.*"
+	}
 }
 var person = q.find(find).list();
+```
+
+
+### Using or and regex
+
+```
+var search = function(req) {
+    var text = req.params.get("text");
+    
+    var exp = {
+	        $regex : ".*"+text+".*"
+    }
+    
+    var find = { $or: [{ Name: exp},{LastName:exp}] };
+    var q = model.buildQuery();
+    
+    return q.find(find).list();
+}
 ```
 
 ### Sorting
@@ -1017,7 +1067,64 @@ Demo Video
 # SERVICES
 
 
-## Api Services
+## Rest Client v2
+
+
+How to Call a Rest Service
+
+### GET Example
+
+```
+var test = function(){
+    var request = {
+        url : "http://app.konacloud.io/api/taio/sample1/mr_model1",
+        method : "get",
+        as : "json"
+    }
+    
+    var data = kona.net.send(request);
+    
+    if (data.code == 200)
+        return JSON.parse(data.response);
+    kona.error("http error " + data.code)
+};
+```
+
+### POST Example
+
+```
+var test = function(){
+    
+    var data = {
+        name : "My Name is Ear"
+    }
+    
+    var request = {
+        url : "http://app.konacloud.io/api/taio/hello/mr_Person",
+        method : "post",
+        data : data
+    }
+    
+    var data = kona.net.send(request);
+    
+    if (data.code == 200)
+        return JSON.parse(data.response);
+        
+    kona.error("http error " + data.code)
+};
+```
+
+For PUT and Delete methods is the same way.
+
+
+If you want the result as a String Stream just add the as parameter
+
+```
+	as : "string"
+```
+
+
+## Rest Client v1 (old way)
 
 Api to communicate by rest to other services on the web.
 
@@ -1244,6 +1351,39 @@ function get(){
 }
 ```
 
+
+# Buckets
+
+When you create a bucket, only need to post data to the bucket URL
+
+## Receive files in a bucket
+
+All files are cached in the browser forever since a url is unique per file. 
+
+### Resize
+
+To resize the image can be sent the following parameters 
+
+s: 
+
+with the parameter s image is of size s (width and height) 
+
+example 
+
+http://url-to-image/filename?s=128 
+
+This returns us an image of 128x128 
+
+w and h: 
+
+also can send the height and width separately 
+
+http://url-to-image/filename?w=128&h=200 
+
+This returns us an image of 128x200
+
+
+
 #Schedule
 
 Como ejecutar un cron job en Kona.
@@ -1319,6 +1459,52 @@ var resp = kona.sample.myFunction("hi");
 add all the methods in the interface and implement them in the ServiceImpl.
 
 Finaly add ha test case for your method in the apropiate package.
+
+# External Services
+
+## Loggin in the cloud
+
+### loggly
+
+Simplify Log Management
+With a simple setup process and easy-to-use tools, Loggly takes the hassle out of log management. Our cloud-based solution makes instant sense of tons of log data coming from applications, platforms, and systems.
+
+more info at https://www.loggly.com
+
+
+![ScreenShot](http://blog.sparklehouse.com/wp-content/uploads/2011/07/cc28b733b8y-logo.jpg.jpg)
+
+
+
+Only need the endpoint url.
+
+```
+var test = function(){
+    //data to log
+    var data = {
+        userAgent : "android",
+        date : new Date(),
+    }
+    
+    //endpoint provided by loggly
+    var conf = {
+        url : "http://logs-01.loggly.com/inputs/3d2fd5d1-39a8-4a1d-8e49-5ce65d918092/tag/http/"
+    }
+
+    //open the connection
+    var l = kona.loggly.open(conf);
+    
+    //send the log
+    l.log(data);
+    
+    return happy;
+};
+
+```
+
+Finaly you can see the logs on your dashboard
+
+![ScreenShot](http://i.imgur.com/wzzUUmhl.png)
 
 
 
@@ -1942,3 +2128,36 @@ public static IEnumerable<Task> GetTasks ()
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/B8Ebh38R4BI" frameborder="0" allowfullscreen></iframe>
 
+# Anexo
+
+
+Kona first Video 30 minutes duration
+http://vimeo.com/82645251
+
+
+SDK Reference
+
+On top of the execution runtine, we created a powerful KonaCloud.IO SDK that helps developers code faster and with less errors with ready-to-use libraries that provide a lot of functionality right outside the box, such as push notifcations for iOS and Android, email sending, sms sending, calling external web services and connecting to SQL-based databases with ease.
+
+We strive to create very simple and efficient helper functions so you don't have to reinvent the wheel. We are adding more functions every day to the SDK.
+
+JavaScript
+
+We love JavaScript and all of KonaCloud.IO is based on JavaScript libraries and functions.
+
+Here are useful links to JavaScript reference and user guides that will help you be more efficient and productive.
+
+A re-introduction to JavaScript (JS Tutorial)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
+
+Mozilla's JavaScript Guide
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
+
+Mozilla's JavaScript Reference
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+
+
+
+# Getting Started Demos
+
+3 minutes tutorial for the first backend
