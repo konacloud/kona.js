@@ -852,6 +852,30 @@ var list = mc.buildQuery(find,10,5).list();
 
 ```
 
+
+### Find RegExp with Case Insensitive and pagination
+
+A more real example for mobile apps.
+
+```
+
+ var text = req.params.get("text");
+    var page = req.params.get("page");
+    if (page==null){
+        page = 0;
+    }
+    
+    var find = {
+        descripcion : {
+            $regex : ".*" + text.toString() + ".*",
+            $options: 'i'
+        }
+    }
+    
+    find = toJson(find);
+    var q = model.buildQuery().find(find).limit(MAX_ITEMS_PER_PAGE).offset(MAX_ITEMS_PER_PAGE*page);
+    var list = q.list();
+```
 ## REDIS
 
 Redis is an open source, BSD licensed, advanced key-value store. It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets and sorted sets.
