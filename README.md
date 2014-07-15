@@ -814,6 +814,26 @@ var names = q.find(find).keys(keys).list();
 
 This will list only the names of the Persons
 
+### find RegEx with case insensitive and pagination
+
+A more real example for mobile apps.
+
+Find a description that contains the text and case insensitive.
+
+
+```
+
+var find = {
+        descripcion : {
+            $regex : ".*" + text + ".*",
+            $options: 'i'
+        }
+    }
+    
+    find = toJson(find);
+    var q = model.buildQuery().find(find).limit(MAX_ITEMS_PER_PAGE).offset(MAX_ITEMS_PER_PAGE*page);
+    var list = q.list();
+```
 
 ### Short way to Start
 
