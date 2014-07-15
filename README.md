@@ -822,17 +822,23 @@ Find a description that contains the text and case insensitive.
 
 
 ```
-
-var find = {
-        descripcion : {
-            $regex : ".*" + text + ".*",
-            $options: 'i'
+var findByDescription = function(req)
+{
+    
+    var text = req.params.get("text");
+    var page = req.params.get("page");
+    
+	var find = {
+        	descripcion : {
+            	$regex : ".*" + text + ".*",
+            	$options: 'i'
         }
     }
     
     find = toJson(find);
     var q = model.buildQuery().find(find).limit(MAX_ITEMS_PER_PAGE).offset(MAX_ITEMS_PER_PAGE*page);
     var list = q.list();
+}
 ```
 
 ### Short way to Start
