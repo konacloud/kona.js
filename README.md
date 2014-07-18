@@ -567,6 +567,44 @@ var person = {
 mc.save(person);
 ```
 
+
+If an object has 10 attributes and we only 2 in the update, the object keeps the other equal to its previous value. 
+
+This support for the upgrade of type HTTP PATH, the client need only send the value to change, for example 
+
+We have the following object.
+
+```
+var obj = {
+	_id : "532452345.."
+	name : "bart",
+	email : "bart@email.com",
+	account : "free"
+}
+```
+
+And we need to update the account, so
+
+```
+
+var objToUpdate = {
+	_id : "532452345.."
+	account : "business"
+}
+
+model.save(objToUpdate);
+```
+
+and the objecto finally is
+```
+var obj = {
+	_id : "532452345.."
+	name : "bart",
+	email : "bart@email.com",
+	account : "business"
+}
+```
+
 #### find And Update
 
 If We want to update all the Persons who has the name eq "Bar"
