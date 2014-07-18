@@ -413,7 +413,7 @@ req.isDelete();
 
 ```
 
-### Ejemplo de obtencion de un headers
+### Getting the headers
 
 ```
 var get = function(req) {
@@ -421,12 +421,26 @@ var get = function(req) {
 };
 ```
 
-### Obtener parametro URL
+### Getting URL Params
 
 ```
 var get = function(req) {
     return req.params.get("asd");
 };
+```
+
+Importantly, the parameters obtained are Strings, to convert to another type you have to do it manually, eg
+
+Getting a boolean value form URL
+
+```
+var get = function(req) {
+	var strParam = req.params.get("asd");
+	var booleanValue = (strParam === 'true');
+	return booleanValue;
+};
+
+
 ```
 
 ## Libraries
