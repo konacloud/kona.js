@@ -893,6 +893,17 @@ var findByDescription = function(req)
 }
 ```
 
+### Full Text Search
+
+http://en.wikipedia.org/wiki/Full_text_search
+
+```
+var test = function() {
+    
+    return model.buildQuery().textSearch("kona").list();
+};
+```
+
 ### Short way to Start
 
 
