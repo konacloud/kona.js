@@ -2,10 +2,10 @@ package org.kona.js.sendgrid;
 
 import java.util.Map;
 
-import org.kona.js.KonaNashormConverter;
+import org.kona.js.util.KonaUtil;
 
+import com.mongodb.DBObject;
 import com.sendgrid.SendGrid;
-import com.sendgrid.SendGridException;
 import com.sendgrid.SendGrid.Email;
 
 public class SendGridServiceImpl implements SendGridService {
@@ -14,7 +14,7 @@ public class SendGridServiceImpl implements SendGridService {
 
 	public void send(Object obj) throws Exception {
 		
-		Map map = KonaNashormConverter.getNewInstance().parseObjectToKonaDO(obj);
+		DBObject map = (DBObject) KonaUtil.getNewInstance().parseObjectToKonaDO(obj);
 		Email email = new Email();
 
 		/*
@@ -60,7 +60,7 @@ public class SendGridServiceImpl implements SendGridService {
 
 	public SendGridService open(Object obj) throws Exception {
 
-		Map conf = KonaNashormConverter.getNewInstance().parseObjectToKonaDO(obj);
+		DBObject conf = (DBObject) KonaUtil.getNewInstance().parseObjectToKonaDO(obj);
 		
 		sendgrid = new SendGrid((String) conf.get("user"),
 				(String) conf.get("password"));
