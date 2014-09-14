@@ -13,6 +13,9 @@ KONA custom APIs are coded in the latest JavaScript. These are then executed by 
 
 Go to getting started http://konacloud.io/doc/getting-started.html
 
+## Command Line Tool (KONA Cli)
+
+Go to http://konacloud.github.io/KONACli/
 
 ## SSN (Simple Social Network)
 
@@ -410,7 +413,7 @@ req.isDelete();
 
 ```
 
-### Ejemplo de obtencion de un headers
+### Getting the headers
 
 ```
 var get = function(req) {
@@ -418,12 +421,26 @@ var get = function(req) {
 };
 ```
 
-### Obtener parametro URL
+### Getting URL Params
 
 ```
 var get = function(req) {
     return req.params.get("asd");
 };
+```
+
+Importantly, the parameters obtained are Strings, to convert to another type you have to do it manually, eg
+
+Getting a boolean value form URL
+
+```
+var get = function(req) {
+	var strParam = req.params.get("asd");
+	var booleanValue = (strParam === 'true');
+	return booleanValue;
+};
+
+
 ```
 
 ## Libraries
@@ -548,6 +565,44 @@ var person = {
 }
 
 mc.save(person);
+```
+
+
+If an object has 10 attributes and we only 2 in the update, the object keeps the other equal to its previous value. 
+
+This support for the upgrade of type HTTP PATH, the client need only send the value to change, for example 
+
+We have the following object.
+
+```
+var obj = {
+	_id : "532452345.."
+	name : "bart",
+	email : "bart@email.com",
+	account : "free"
+}
+```
+
+And we need to update the account, so
+
+```
+
+var objToUpdate = {
+	_id : "532452345.."
+	account : "business"
+}
+
+model.save(objToUpdate);
+```
+
+and the objecto finally is
+```
+var obj = {
+	_id : "532452345.."
+	name : "bart",
+	email : "bart@email.com",
+	account : "business"
+}
 ```
 
 #### find And Update
@@ -811,6 +866,43 @@ var names = q.find(find).keys(keys).list();
 
 This will list only the names of the Persons
 
+### find RegEx with case insensitive and pagination
+
+A more real example for mobile apps.
+
+Find a description that contains the text and case insensitive.
+
+
+```
+var findByDescription = function(req)
+{
+    
+    var text = req.params.get("text");
+    var page = req.params.get("page");
+    
+	var find = {
+        	descripcion : {
+            	$regex : ".*" + text + ".*",
+            	$options: 'i'
+        }
+    }
+    
+    find = toJson(find);
+    var q = model.buildQuery().find(find).limit(MAX_ITEMS_PER_PAGE).offset(MAX_ITEMS_PER_PAGE*page);
+    var list = q.list();
+}
+```
+
+### Full Text Search
+
+http://en.wikipedia.org/wiki/Full_text_search
+
+```
+var test = function() {
+    
+    return model.buildQuery().textSearch("kona").list();
+};
+```
 
 ### Short way to Start
 
@@ -828,6 +920,7 @@ var list = mc.buildQuery(find).list();
 var list = mc.buildQuery(find,10,5).list();
 
 ```
+
 
 ## REDIS
 
