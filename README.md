@@ -94,23 +94,23 @@ var test = function() {
 With this we can do the folowings operations
 
 POST JSON
-http://app.konacloud.io/api/taio/SSN/mr_User
+http://app.konacloud.io/user/app/SSN/mr_User
 to insert a new user
 
 PUT JSON
-http://app.konacloud.io/api/taio/SSN/mr_User
+http://app.konacloud.io/user/app/SSN/mr_User
 to save user data
 
 DELETE
-http://app.konacloud.io/api/taio/SSN/mr_User
+http://app.konacloud.io/user/app/SSN/mr_User
 remove a user
 
 GET
-http://app.konacloud.io/api/taio/SSN/mr_User
+http://app.konacloud.io/user/app/SSN/mr_User
 get all users
 
 GET
-http://app.konacloud.io/api/taio/SSN/mr_User?id=1231124323
+http://app.konacloud.io/user/app/SSN/mr_User?id=1231124323
 get the user with id 1231124323
 
 So, we just define our model and KONA did the rest.
