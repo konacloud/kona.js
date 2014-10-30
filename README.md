@@ -28,48 +28,7 @@ Templates and Examples
 
 ### Model Resources
 
-```
-/*
- * @autor {userId}
- */
-var model = kona.model.open('modelId');
-
-/*
- * @param req is the http request, req.params.get("")
- */
-var get = function(req) {
-	return model.all();
-};
-
-/*
- * @param req.body is a instance of {modelId}
- */
-var post = function(req) {
-	model.insert(req.body);
-	return kona.obj(true);
-};
-
-/*
- * @param req.body is a instance of {modelId}
- */
-var put = function(req) {
-	model.save(req.body);
-	return kona.obj(true);
-};
-
-/*
- * @param req.params.get("id") is the id of the instance to delete
- */
-var del = function(req) {
-	var id = req.params.get("id");
-	model.deleteById(id);
-	return kona.obj(true);
-};
-
-var test = function() {
-	return get();
-};
-```
+the code is automaticaly created
 
 ### Custom Resource
 
