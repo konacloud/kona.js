@@ -32,7 +32,7 @@ the code is automaticaly created
 
 ### Custom Resource
 
-```
+```js
 var model = kona.model.open('{modelId}');
 
 var get = function(req) {
@@ -44,8 +44,7 @@ var get = function(req) {
 ```
 ### JOB
 
-```
-
+```js
 var run = function(){
 	log("hi);
 }
@@ -53,8 +52,7 @@ var run = function(){
 
 ### Library
 
-```
-
+```js
 var abs = function(num){
 	if (num>0)
 		return num;
@@ -76,15 +74,12 @@ Hello word without models, buckets or nothing.
 
 You can create and use JS Object and them pass they to the kona methods
 
-```
-
+```js
 var obj = {
 	"name": "Ear",
 	"age":19
 };
-
 var str = JSON.stringify(obj); //this is a String.
-
 ```
 
 
@@ -93,28 +88,22 @@ var str = JSON.stringify(obj); //this is a String.
 
 Diferents ways to create objects, you can use JS Object or Java Object, for example
 
-```
-
+```js
 var test = function() {
 
     var obj = kona.obj();
     obj.put("name","obj1");
-
     model.insert(obj);
 
     var obj2 = new Object();
     obj2.name = "obj2";
-
     model.insert(obj2);
-
+    
     var obj3 = {
         name : "obj3"
     };
-
     model.insert(obj3);
-
 };
-
 ```
 
 You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
@@ -122,12 +111,13 @@ usually an object of type KonaDO compliant json format with other properties.
 
 The following are valid
 
-```
+```js
 var obj = kona.obj();
 ```
+
 ## List
 
-```
+```js
 var obj = new ArrayList<KonaDO>(); //o
 var obj = kona.list();
 ```
@@ -138,11 +128,11 @@ Managin dates in KONA
 
 We recomend to use the ISO standar for dates, for example
 
-```
+```js
 { "fecha" : "2014-07-08T03:30:28.650Z"}
 ```
 
-```
+```js
 var test = function(){
    
    var obj = kona.obj();
@@ -153,22 +143,23 @@ var test = function(){
    return obj;
 };
 ```
+
 ##How to Log
 
 Yo can log all kond of stuff, for example
-```
+
+```js
 log("This is a common log");
 log.err("Hi this is han error");
 log.info("This is han info log");
 log.war("This is han warining log");
-
 ```
 
 If you use the "Debug" Button you can see the logs for the test method, and web yous clientes acces to the resources then the logs area stored and you can see them in the Log View
 
 and the result is something like this
 
-```
+```js
 //Use log('text') to log
 This is a common log
 [ERROR] Wed Jun 18 2014 01:22:21 GMT-0300 (UYT)Hi this is han error
@@ -178,22 +169,16 @@ This is a common log
 
 ## TEST (Traducir)
 
-Cada api debe implementar el metodo test para poder ser utiliada en la test suite.
-El metodo test es un test unitario del recurso o metodo que se esta programando.
+Each API must implement the test method, like var test = function(){}
 
-Se considera que un test es exitoso si no contiene error al terminar su ejecucion, alguna funciones de utilidad son:
-
-```
+```js
 	assert(p, q)
-```
-
-```
 	notAssert(p, q)
 ```
 
-Ademas se pueden hacer cosas como
+Sending an error
 
-```
+```js
 	if (somethingStrange()){
 		kona.error("This is bad");
 	}
@@ -207,7 +192,7 @@ Consideramos una buena practica que todos los metodos tengan su test, auque debe
 
 Cada request a un resource viene con la siguiente estructura, por ejemplo
 
-```
+```js
 req.header.get("some_header")
 req.params.get("some_param")
 req.body.get("field");
@@ -218,12 +203,11 @@ req.isPost();
 req.isGet();
 req.isPut();
 req.isDelete();
-
 ```
 
 ### Getting the headers
 
-```
+```js
 var get = function(req) {
     return req.headers.get("asd");
 };
@@ -231,9 +215,11 @@ var get = function(req) {
 
 ### Getting URL Params
 
-```
+The API URL its like konacloud.io/api.../myapi?param=someVAlue
+
+```js
 var get = function(req) {
-    return req.params.get("asd");
+    return req.params.get("param");
 };
 ```
 
@@ -241,25 +227,27 @@ Importantly, the parameters obtained are Strings, to convert to another type you
 
 Getting a boolean value form URL
 
-```
+```js
 var get = function(req) {
-	var strParam = req.params.get("asd");
+	var strParam = req.params.get("param");
 	var booleanValue = (strParam === 'true');
 	return booleanValue;
 };
+```
 
+Getting a int value form URL
 
+```js
+var get = function(req) {
+	var strParam = req.params.get("param");
+	var myInt = parseInt(strParam);
+};
 ```
 
 ## Libraries
 
-Para definir librerias y utlizar en cualquier resource/job o otra libreria
-
-Guardar el codigo como Library
-
-Por ejemplo:
-
-```
+First create a library, and save it for exampe as timeUtil
+```js
 var util = function(){
     return (new Date()).getTime();
 };
@@ -269,11 +257,9 @@ var test = function(){
 }
 ```
 
-y lo Guardamos por ejemplo con el nombre timeUtil
+From other API we include the library and use it.
 
-Luego desde cualquier funcion simplemente lo incluimos al comienzo del script (es importante que sea al principio)
-
-```
+```js
 include("timeUtil");
 
 var test = function(){
@@ -283,20 +269,23 @@ var test = function(){
 
 # Safe methods
 
+This methods allow us to play safe with JS and KONA Integration.
+
 ## To JavaScript
 
-If some result you cant use in js mode, report and do this
-
-```
+thi is to use the response as JS JSon, for example
+```js
 obj = kona.somepackage.somefunction();
 var safeJSObject = toJS(obj);
+
+var some = safeJSObject.someProperty
 ```
 
 ## To Kona Object (Java)
 
-If one object Kona cant parse, report and do this
+To call KONA functions from JS, just do this
 
-```
+```js
 obj = {
 	...
 }
@@ -305,9 +294,6 @@ result = kona.somepackage.somefunction(safeKO);
 ```
 
 # STORAGE
-
-## Demo Ticket Backend
-<iframe src="//fast.wistia.net/embed/iframe/r55v2ub1ma" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="399"></iframe>
 
 The KONA default persistence is through the Model Service. 
 
@@ -328,7 +314,7 @@ As an example we will compare what we do with sql engines, how we do in KONA.
 The first thing we do is create the contorlador of our model (Model Controller) to access their APIs.
 For example suppose you have a Person model with name, lastName attributes, and email
 
-```
+```js
 var mc = kona.model.open("Person");
 ```
 
@@ -337,7 +323,7 @@ The rest of you will be varible mc (Model Controller for Person).
 ### Insert a New Object
 
 
-```
+```js
 var person = {
 	name : "Bart",
 	lastName : "Simpson",
@@ -348,7 +334,7 @@ mc.insert(person);
 ```
 
 With this always insert a new entity and creates ha new id for the object, if we get this object its looks like
-```
+```js
 var person = {
 	name : "Bart",
 	lastName : "Simpson",
@@ -364,7 +350,7 @@ var person = {
 To update an object is necessary to know its id.
 Later when we see the queries, they get the id of all the items you want.
 
-```
+```js
 var person = {
 	name : "Bartolomeo",
 	lastName : "Simpson",
@@ -382,7 +368,7 @@ This support for the upgrade of type HTTP PATH, the client need only send the va
 
 We have the following object.
 
-```
+```js
 var obj = {
 	_id : "532452345.."
 	name : "bart",
@@ -393,8 +379,7 @@ var obj = {
 
 And we need to update the account, so
 
-```
-
+```js
 var objToUpdate = {
 	_id : "532452345.."
 	account : "business"
@@ -404,7 +389,7 @@ model.save(objToUpdate);
 ```
 
 and the objecto finally is
-```
+```js
 var obj = {
 	_id : "532452345.."
 	name : "bart",
@@ -417,7 +402,7 @@ var obj = {
 
 If We want to update all the Persons who has the name eq "Bar"
 
-```
+```js
 var barto = {
 	name: "Bart"
 }
@@ -434,7 +419,7 @@ For example if you have a list of friends per user and you want to add a friend 
 
 Our user model has an array of user ids.
 
-```
+```js
 var modelUsers = kona.model.open('User');
 var q = { _id: toUserId };
 var u = { $push: { friends: fromUserId } };
@@ -446,12 +431,12 @@ modelUsers.findAndUpdate( q,  u);
 ### Delete By Id
 To delete an object is necessary to know its id.
 
-```
+```js
 mc.deleteById("51243na314aae34");
 ```
 
 ### delete all objects in a collection
-```
+```js
 model.all().forEach(function(i) {
      model.deleteById(i._id);
 });
@@ -460,7 +445,7 @@ model.all().forEach(function(i) {
 ### find And Delete
 Same as before, if we want to delete all the Persons who has the name eq "Bar"
 
-```
+```js
 var barto = {
 	name: "Bart"
 }
@@ -469,7 +454,7 @@ mc.findAndDelete(barto);
 
 ### Query List
 
-```
+```js
 var m = kona.model.open("person");
 var list = m.query('person',"{name:'me'}"); //obtenemos todas las personas con nombre igual a 'me'
 
@@ -477,7 +462,7 @@ var list = m.query('person',"{name:'me'}"); //obtenemos todas las personas con n
 
 ### Query By Id
 
-```
+```js
 var m = kona.model.open("person");
 m.queryById("id1");
 
@@ -493,7 +478,7 @@ In this example we will do it in the large way, and finaly we show some helpers
 
 ### Build Query
 
-```
+```js
 var q = mc.buildQuery();
 ```
 
@@ -503,7 +488,7 @@ In SQL to get all the elements we do
 
 select * from Person, and in Kona
 
-```
+```js
 var list = q.list();
 ```
 
@@ -516,7 +501,7 @@ however it would be best not to have to send more request but the result page al
 
 The page is defined as a limit and offset, so the pages may have dynamic size.
 
-```
+```js
 q = q.limit(10).offset(5);
 var list = q.list();
 
@@ -530,7 +515,7 @@ we get at max 10 elements but we skip the firs 5 elements
 
 Select * from Person where name = "Bart";
 
-```
+```js
 var find = {
 	name : "Bart"
 }
@@ -541,7 +526,7 @@ If we know that our query will result in a single result allway, search by id or
 
 We can do this in any query.
 
-```
+```js
 var find = {
 	name : "Bart"
 }
@@ -556,7 +541,7 @@ Query Examples
 
 SELECT * FROM Person WHERE name = "Bart" OR lastName = "Simpson"
 
-```
+```js
 find = { $or: [{ name: "Bart"},{lastName:"Simpson"}] };
 var list = q.find(find).list();
 ```
@@ -565,7 +550,7 @@ If the person has an age, and we have to to the all the persons with age > 25
 
 SELECT * FROM Person WHERE age > 25;
 
-```
+```js
 find = { age: { $gt: 25 } };
 var list = q.find(find).list();
 ```
@@ -581,7 +566,7 @@ find = { age: { $gt: 25, $lte: 50 }
 
 to compare by id do this
 
-```
+```js
 var _id = kona.mongo.objectId("");
 ```
 ### Like in Queries RegEX
@@ -590,7 +575,7 @@ We can use RegExp or if the only thing tha we need is the like we can do this.
 
 SELECT * FROM Person WHERE name like "%Bart%";
 
-```
+```js
 var find = {
 	name : {
 		$regex : ".*some.*"
@@ -602,7 +587,7 @@ var person = q.find(find).list();
 
 ### Using or and regex
 
-```
+```js
 var search = function(req) {
     var text = req.params.get("text");
     
@@ -621,7 +606,7 @@ var search = function(req) {
 
 SELECT * FROM Person order by age ASC
 
-```
+```js
 var find = {
 	name : "/ar/"
 }
@@ -634,7 +619,7 @@ var person = q.find(find).sort(sorter).list();
 
 SELECT * FROM Person order by age DESC
 
-```
+```js
 var find = {
 	name : "/ar/"
 }
@@ -649,7 +634,7 @@ var person = q.find(find).sort(sorter).list();
 
 Select count(*) from Person where name = "Bart";
 
-```
+```js
 var find = {
 	name : "Bart"
 }
@@ -661,7 +646,7 @@ var size = q.find(find).count();
 This is very important if we have 10 atributes but we only need 2 to show up.
 
 
-```
+```js
 var find = {
 	name : "Bart"
 }
@@ -681,7 +666,7 @@ A more real example for mobile apps.
 Find a description that contains the text and case insensitive.
 
 
-```
+```js
 var findByDescription = function(req)
 {
     
@@ -705,7 +690,7 @@ var findByDescription = function(req)
 
 http://en.wikipedia.org/wiki/Full_text_search
 
-```
+```js
 var test = function() {
     
     return model.buildQuery().textSearch("kona").list();
@@ -715,8 +700,7 @@ var test = function() {
 ### Short way to Start
 
 
-```
-
+```js
 var mc = kona.model.open("Person");
 
 var find = {
@@ -742,7 +726,7 @@ http://redislabs.com/
 
 Code Example
 
-```
+```js
 var test = function(){
     
     var conf = {
@@ -767,7 +751,7 @@ We also recomend to use redislab
 
 CodeExample
 
-```
+```js
 var test = function(){
     
     var conf = {
@@ -792,7 +776,7 @@ http://aws.amazon.com/es/rds/mysql/
 
 https://www.cleardb.com/
 
-```
+```js
 var test = function(){
     var conn = {
         url : "smartech.com.uy:3306/sakila",
@@ -809,7 +793,7 @@ var test = function(){
 
 The result is a json like this
 
-```
+```js
 [{ "actor_id" : 1 ,
   "first_name" : "PENELOPE" ,
   "last_name" : "GUINESS" ,
@@ -825,7 +809,7 @@ https://www.heroku.com/postgres
 http://www.elephantsql.com/
 
 
-```
+```js
 var test = function(){
     var conn = {
         url : "ec2-54-197-250-40.compute-1.amazonaws.com:5432/dbs0egkrel1vj5?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory",
@@ -842,7 +826,7 @@ var test = function(){
 
 The result is a json like this
 
-```
+```js
 [{ "code" : "a    " ,
   "title" : "A"},
   { "code" : "b    " ,
@@ -867,7 +851,7 @@ then create the user account and get a pass.
 
 Example of code.
 
-```
+```js
 var test = function(){
     var conf = {
         user: "user",
@@ -893,7 +877,7 @@ var test = function(){
 
 Example with Gmail
 
-```
+```js
 var test = function(){
     
     var conf = {
@@ -920,13 +904,12 @@ Import and use direct the Simple Java Mail Api
 
 more info  https://code.google.com/p/simple-java-mail/wiki/Manual
 
-```
+```js
 load("nashorn:mozilla_compat.js");
 importPackage(org.kona.js.mail);
 ```
 
-```
-
+```js
 var email = new Email();
 email.setFromAddress("taio", "taio@linux-mail.com");
 email.setSubject("hey");
@@ -946,14 +929,14 @@ m.send(email);
 
 ### Using Kona Mail Sender
 
-```
+```js
 kona.email.send('email@server.com','Subject','Content');
 
 ```
 
 ## SMS
 
-```
+```js
   kona.sms.send('12312312','my sms text');
 
   Important the number must have the country code, because is global :)
@@ -975,7 +958,7 @@ How to Call a Rest Service
 
 ### GET Example
 
-```
+```js
 var test = function(){
     var request = {
         url : "http://app.konacloud.io/api/taio/sample1/mr_model1",
@@ -993,7 +976,7 @@ var test = function(){
 
 ### POST Example
 
-```
+```js
 var test = function(){
     
     var data = {
@@ -1020,7 +1003,7 @@ For PUT and Delete methods is the same way.
 
 If you want the result as a String Stream just add the as parameter
 
-```
+```js
 	as : "string"
 ```
 
@@ -1034,7 +1017,7 @@ REST (json)
 
 ### Fast Way
 
-```
+```js
 function f(){
 	var obj = kona.obj();
 	var api = kona.net.get();
@@ -1044,8 +1027,8 @@ function f(){
 }
 ```
 
-La respuesta es
-```
+Response
+```js
 {
 temperatura: 19.25
 }
@@ -1053,14 +1036,14 @@ temperatura: 19.25
 
 ### Metodo Get
 
-```
+```js
 var api = kona.net().get();
 }
 ```
 
 ### Metodo Post
 
-```
+```js
 var data = kona.obj();
 data.put("hola",123);
 
@@ -1071,7 +1054,7 @@ var r = api.call("http://postexample.com");
 
 ### Metodo Put
 
-```
+```js
 var data = kona.obj();
 data.put("put",12);
 
@@ -1090,7 +1073,7 @@ First add the Android APiKey in the app lication settings
 
 Code Example
 
-```
+```js
 var test = function(){
     
     var payload = kona.obj("message","Hi from kona");
@@ -1109,7 +1092,7 @@ https://github.com/konacloud/samples/tree/master/android%20push%20notification%2
 
 ## IOS Push Notifications
 
-```
+```js
 var test = function(){
     
     var payload = {"aps":{"alert":{"body":"push desde KONA","title":"el titulo","action":"Si o no?"},"sound":"default","badge":1},"micampo":"valor"};
@@ -1127,13 +1110,13 @@ The idea is to have an api to work with maps and locations
 One line code Geocode api
 
 
-```
+```js
   kona.map.geocode("uruguay montevideo charrua 1880");
 
 ```
 result
 
-```
+```js
 { "latitude" : -34.9062205 ,
   "longitude" : -56.174852}
 
@@ -1141,13 +1124,13 @@ result
 
 One line code Geocode reverse api
 
-```
+```js
 kona.map.reverse(-34.9062205,-56.174852);
 ```
 
 result
 
-```
+```js
 { "region" : "Montevideo Department" ,
   "zip" : "11200" ,
   "street_name" : "CharrÃºa" ,
@@ -1168,9 +1151,8 @@ Demo Video
 
 ### QR Generation
 
-```
+```js
     return kona.img.qr("some text");
-
 ```
 
 Demo video:
@@ -1183,14 +1165,13 @@ The idea is to have an api to manage net stuff
 
 One line code
 
-```
+```js
     return kona.net.search("konacloud.org");
-
 ```
 
 ### Misc Utils
 
-```
+```js
 /*
  * Search domain
  */
@@ -1207,22 +1188,19 @@ kona.net.ping("ip");
  * Check open ports in host
  */
 
-public DBObject checkPort(String host, int port) throws Exception;
+checkPort("host",80);
 
 /*
  *  dn2ip
  */
-public DBObject dn2ip(String host) throws Exception;
+dn2ip("host");
 
 /*
  *  ip2dn
  */
 
-public DBObject ip2dn(String ip) throws Exception;
-
+ip2dn("ip");
 ```
-
-
 
 # File Service
 
@@ -1230,12 +1208,9 @@ The File Service is to create files, pdf, txt, doc or ms ms docx, html formats a
 
 The idea is to write rich text (html) and convert them to other formats, persisting for the last file in a special bucket (default)
 
-
-
 ##Making a PDF and Sendit by email
 
-
-```
+```js
 function get(){
     
     out = kona.obj();
@@ -1324,8 +1299,6 @@ Para ver los logs de las ejecuciones programadas hacer click en Logs
 kona.js
 
 
-
-
 #OpenKonaJS
 
 
@@ -1353,7 +1326,7 @@ or the other posibility is to add in IOpenKonaJSFactory one method and implement
 
 When the finaly user use the code, he will just type
 
-```
+```js
 var resp = kona.sample.myFunction("hi");
 ```
 
@@ -1379,7 +1352,7 @@ more info at https://www.loggly.com
 
 Only need the endpoint url.
 
-```
+```js
 var test = function(){
     //data to log
     var data = {
@@ -1518,7 +1491,7 @@ for converting Pojos into Strings we recomend to use Gson https://code.google.co
 
 AndroidManigest.xml
 
-```
+```js
 <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 ```
 
@@ -1526,7 +1499,7 @@ AndroidManigest.xml
 
 ### HTTP GET
 
-```
+```js
 	KonaRequest request = new KonaRequest() {
 	{
 		this.url = "http://app.konacloud.io/...";
@@ -1550,7 +1523,7 @@ AndroidManigest.xml
 
 ### HTTP POST
 
-```
+```js
 	final JSONObject json = new JSONObject();
 	json.put("name", "kona");
 	
@@ -1577,7 +1550,7 @@ AndroidManigest.xml
 
 ### HTTP PUT
 
-```
+```js
 	final JSONObject json = new JSONObject();
 	json.put("name", "kona");
 	
@@ -1604,7 +1577,7 @@ AndroidManigest.xml
 
 #### HTTP Delete
 
-```
+```js
 	KonaRequest request = new KonaRequest() {
 	{
 		this.url = "http://app.konacloud.io/..";
@@ -1632,20 +1605,20 @@ AndroidManigest.xml
 Download https://code.google.com/p/google-gson/downloads/list
 
 #### Instanciate the Gson object
-```
+```js
 Gson gson = new Gson();
 ```
 
 #### ToString();
 
-```
+```js
 MyPojo obj = new MyPojo();
 String json = gson.toJson(obj);
 ```
 
-#### POST Example
+#### POST Example with Gson
 
-```
+```js
 	Gson gson = new Gson();
 	
 	MyPojo obj = new MyPojo();
@@ -1678,7 +1651,7 @@ String json = gson.toJson(obj);
 
 #### Post a FILE
 
-```
+```js
 	KonaCallBack callback = new KonaCallBack() {
 
 					@Override
@@ -1696,7 +1669,7 @@ String json = gson.toJson(obj);
 
 Take a photo with the camera and send to a KONA backet storage.
 
-```
+```js
 
 	static final int REQUEST_IMAGE_CAPTURE = 1;
 
@@ -1740,13 +1713,12 @@ Take a photo with the camera and send to a KONA backet storage.
 
 #### Load a File in ImageView
 
-```
+```js
 	KonaBucket.getInstance().loadImage("http://host",imageView);
 ```
 
 
 ### Example Cooker App
-
 
 <iframe width="420" height="315" src="//www.youtube.com/embed/6Whhe71fyus" frameborder="0" allowfullscreen></iframe>
 
@@ -1768,9 +1740,7 @@ code https://github.com/konacloud/samples/tree/master/android-cookerapp
 
 # JS (Jquery)
 
-We recommend to use jquery.
-
-```
+```js
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 ```
 
@@ -1783,7 +1753,7 @@ For this model example
 ![ScreenShot](http://i.imgur.com/SRcAHrul.png)
 
 
-```
+```js
 var obj = {
   name: "myName",
   email: "myEmail@company.com"
@@ -1803,7 +1773,7 @@ $.ajax
 
 ## GET
 
-```
+```js
 $.getJSON( "http://app.konacloud.io/user/app/modelId", function( data ) {
     if (!data.success){
       console.log("some error happend " + data.msg);
@@ -1815,7 +1785,7 @@ $.getJSON( "http://app.konacloud.io/user/app/modelId", function( data ) {
 
 ### Simple working example
 
-```
+```html
 <html>
 <head>
 <title>KONA jQuery Hello World</title>
@@ -1857,7 +1827,7 @@ View the console for results
 
 ## X-AUTH-TOKEN
 
-```
+```js
 $.ajax
     ({
         type: "POST",
@@ -1884,10 +1854,10 @@ https://github.com/blueimp/jQuery-File-Upload
 
 ### Simple usage
 
-```
+```html
 <input id="fileupload" type="file" name="files[]" multiple>
 ```
-```
+```js
 $('#fileupload').fileupload({
         url: "http://bucket.konacloud.io/external/api/bucket/taio/samples/b1",
         dataType: 'json',
@@ -1900,7 +1870,7 @@ $('#fileupload').fileupload({
 
 ### Complete example
 
-```
+```html
 <!DOCTYPE HTML>
 
 <html lang="en">
@@ -1974,8 +1944,7 @@ $(function () {
 
 ## POST File to a bucket with PhoneGap
 
-```
-
+```js
 function uploadPhoto(imageURI) {
             var options = new FileUploadOptions();
             options.fileKey="file";
@@ -2000,7 +1969,7 @@ function uploadPhoto(imageURI) {
 
 Getting a list
 
-```
+```js
 public static IEnumerable<Task> GetTasks ()
 		{
 
