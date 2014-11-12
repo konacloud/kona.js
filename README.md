@@ -293,6 +293,35 @@ var safeKO = toJson(obj);
 result = kona.somepackage.somefunction(safeKO);
 ```
 
+#Recipes
+
+## Login
+
+Asume we have a model User with email and password atributes
+
+```js
+var login = function(req) {
+    
+    if (req.body.get("email") == null) {
+        kona.error("email is missing");
+    }
+    
+    var find = {
+        email : req.body.get("email")
+    }
+    var list = model.buildQuery().find(find).list();
+    if (list.size()==0){
+        kona.error("user not found");
+    }
+    var user = list.get(0);
+    if (user.get("password") == req.body.get("password")){
+        return {succes:true};
+    }else {
+        return {succes:false};
+    }
+};
+```
+
 # STORAGE
 
 The KONA default persistence is through the Model Service. 
