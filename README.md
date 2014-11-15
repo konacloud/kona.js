@@ -10,12 +10,25 @@ KONA custom APIs are coded in the latest JavaScript. These are then executed by 
 - Developer Portal: http://developer.konacloud.io
 
 ## Getting Started
-
 Go to getting started http://konacloud.io/doc/getting-started.html
+
+## Start with some tutorials
+
+Check out some examples
+
+### Anguar.js
+http://konacloud.io/doc/quickstart_employee.html
+
+### Ionic framework
+http://konacloud.io/doc/users.html
+
+### IOS
+http://konacloud.io/doc/cookerapp.html
 
 ## Command Line Tool (KONA Cli)
 
-Go to kona cli tool http://konacloud.github.io/KONACli/
+Want to go offline?
+Check out the kona cli tool http://konacloud.github.io/KONACli/
 
 
 ## Kona APP Architecture
