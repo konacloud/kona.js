@@ -762,23 +762,24 @@ Redis is an open source, BSD licensed, advanced key-value store. It is often ref
 
 more info http://redis.io/
 
-We recomend the use of redislab as the redis cloud provider
+We recomend the use of some as the redis cloud provider
 
-http://redislabs.com/
+- http://redislabs.com/
+- https://openredis.com/
 
 Code Example
 
 ```js
 var test = function(){
-    
     var conf = {
-        url : "pub-redis-16812.us-east-1-3.4.ec2.garantiadata.com",
-        port: 16812
+        url : "pub-redis-12330.us-east-1-4.4.ec2.garantiadata.com",
+        port: 12330,
+        password : "pass" //optional
     }
-    
+
     var r = kona.redis.open(conf);
     r.set("key","Kona");
-    
+
     return r.get("key");
 };
 ```
