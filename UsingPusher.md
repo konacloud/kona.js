@@ -1,5 +1,5 @@
 
-#Using Pusher
+#Using Pusher with KONA
 
 ## Introduction
 
