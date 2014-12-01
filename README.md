@@ -754,6 +754,23 @@ var list = mc.buildQuery(find).list();
 var list = mc.buildQuery(find,10,5).list();
 
 ```
+### Query with Dates
+
+MongoDB saves the Dates in ISO format, do you need to have the date in this format to query
+
+```js
+var test = function() {
+    
+    var findObj = {
+        start : {
+            $gt : {
+                $date : new Date().toISOString()
+            }
+        }
+    }
+    return model.buildQuery().find(toJson(findObj)).list();
+};
+```
 
 
 ## REDIS
