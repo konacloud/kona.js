@@ -994,19 +994,12 @@ kona.email.send('email@server.com','Subject','Content');
 
 ```
 
-## SMS
+## SMS & VoIP
 
-```js
-  kona.sms.send('12312312','my sms text');
+Use Twillio to send SMS and VoIP
 
-  Important the number must have the country code, because is global :)
+read more at http://konacloud.io/doc/service.html?path=twilio.md
 
-  for example for Uruguay 59899123123 for the number 099 123 123
-
-```
-
-Demo Video
-<iframe width="560" height="315" src="//www.youtube.com/embed/YnOMuFf7q0E" frameborder="0" allowfullscreen></iframe>
 
 # SERVICES
 
