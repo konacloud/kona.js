@@ -892,6 +892,31 @@ The result is a json like this
   { "code" : "b    " ,
   "title" : "B"}]
 ```
+
+## Oracle DB
+
+```
+
+//open 
+var db = kona.oracle.open('{myid}'); 
+
+//query
+var result = db.query('select * from mytable');
+//close the connection
+db.close();
+
+//APIs
+
+db.query(String query);
+	
+db.execute(String query);
+	
+Connection db.getConnection();
+	
+db.close();
+```
+
+	
 # COMUNICATION
 
 ## EMAIL
