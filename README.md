@@ -30,29 +30,15 @@ http://konacloud.io/doc/cookerapp.html
 Want to go offline?
 Check out the kona cli tool http://konacloud.github.io/KONACli/
 
-
-## Kona APP Architecture
-
-![ScreenShot](http://i.imgur.com/bS6AJu3.png)
-
-
 Templates and Examples
 ===============
 
 ### Model Resources
 
-the code is automaticaly created
+Model Controller Code, for example
 
-### Custom Resource
-
-```js
-var model = kona.model.open('{modelId}');
-
-var get = function(req) {
-	
-	var id = req.params.get("id);
-	return model.queryById(id);
-};
+```
+```
 
 ```
 ### JOB
@@ -96,29 +82,6 @@ var str = JSON.stringify(obj); //this is a String.
 ```
 
 
-## HOW to Use Object in Kona
-
-
-Diferents ways to create objects, you can use JS Object or Java Object, for example
-
-```js
-var test = function() {
-
-    var obj = kona.obj();
-    obj.put("name","obj1");
-    model.insert(obj);
-
-    var obj2 = new Object();
-    obj2.name = "obj2";
-    model.insert(obj2);
-    
-    var obj3 = {
-        name : "obj3"
-    };
-    model.insert(obj3);
-};
-```
-
 You can create as ANY WAY object is created in java, for communication between the script and utlize kona.js
 usually an object of type KonaDO compliant json format with other properties.
 
@@ -126,6 +89,12 @@ The following are valid
 
 ```js
 var obj = kona.obj();
+
+//or
+
+obj = {
+	name : "Name"
+}
 ```
 
 ## List
@@ -180,7 +149,7 @@ This is a common log
 [WAR] Wed Jun 18 2014 01:22:21 GMT-0300 (UYT)This is han warining log
 ```
 
-## TEST (Traducir)
+## TEST
 
 Each API must implement the test method, like var test = function(){}
 
@@ -189,21 +158,22 @@ Each API must implement the test method, like var test = function(){}
 	notAssert(p, q)
 ```
 
-Sending an error
+Sending an error and http code status
 
 ```js
 	if (somethingStrange()){
-		kona.error("This is bad");
+		kona.error("This is bad"); //http 400 code
+		
+		kona.error("bad login",401); //http 401 code
+		
+		kona.error("internal server error",500); //http 500 code
 	}
 ```
 
-Consideramos una buena practica que todos los metodos tengan su test, auque deben tener cuidado de no insertar datos en cada test (queda a criterio del desarrollador)
-
-
-
 ## Request Structure
 
-Cada request a un resource viene con la siguiente estructura, por ejemplo
+Each request has the following structure
+
 
 ```js
 req.header.get("some_header")
@@ -334,6 +304,26 @@ var login = function(req) {
     }
 };
 ```
+
+## Generating Token
+
+```
+	var newToken = kona.util.generateUUID();
+```
+
+## Hash passwords
+
+```
+	//bcrypt hash
+	var hashed = kona.crypt("mypass");
+	
+	var hashed = kona.crypt("mypass",12);//with salt
+	
+	if (kona.crypt.check("mypass",hashed) {
+		//login ok
+	}
+```
+
 
 # STORAGE
 
