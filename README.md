@@ -2,7 +2,7 @@ KonaCloud.io
 ============
 Welcome to KonaCloud.io
 
-KonaCloud.io is for developers by developers. A platform to run all your back-ends, APIs and bussiness logic. Runs JavaScript on the server-side so you don't have to learn a new language.
+KonaCloud.io is for developers by developers. A platform to run all your back-ends, APIs and business logic. Runs JavaScript on the server-side so you don't have to learn a new language.
 KONA is a Backend-as-a-Service platform which allows you to create data models, code custom APIs, create and use object storage buckets and reporting for your data.
 KONA custom APIs are coded in the latest JavaScript. These are then executed by the all-new, super-fast  and powerful Nashorn JavaScript engine from Oracle's JVM 8.
 
